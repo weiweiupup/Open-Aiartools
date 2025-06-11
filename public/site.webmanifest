@@ -1,0 +1,35 @@
+{
+  "name": "Aiartools - AI Image Editor",
+  "short_name": "Aiartools",
+  "description": "Transform your images with the power of AI. Simple, fast, and incredibly powerful.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["photo", "graphics", "productivity"],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-mobile.png",
+      "sizes": "320x640",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/images/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ]
+} 

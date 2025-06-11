@@ -1,0 +1,541 @@
+{
+  "seo": {
+    "title": "Aiartools - AI图像编辑工具，一言生万象",
+    "description": "用AI的力量改变你的图像。简单、快速、功能强大。支持智能编辑、风格转换、背景移除等多种AI图像处理功能。",
+    "keywords": "AI图像编辑,人工智能,图片处理,AI修图,智能编辑,风格转换,背景移除,图像增强",
+    "ogTitle": "Aiartools - 领先的AI图像编辑平台",
+    "ogDescription": "体验最先进的AI图像编辑技术，用简单的文字描述就能实现复杂的图像变换。支持多种风格、智能编辑、背景处理等功能。",
+    "twitterTitle": "Aiartools - AI图像编辑神器",
+    "twitterDescription": "🎨 用AI改变你的图像世界！简单描述，智能变换，体验前所未有的图像编辑体验。"
+  },
+  "navigation": {
+    "home": "首页",
+    "features": "功能特色",
+    "demo": "在线体验",
+    "pricing": "价格方案",
+    "blog": "博客",
+    "login": "登录",
+    "register": "注册",
+    "dashboard": "个人中心",
+    "logout": "退出登录"
+  },
+  "hero": {
+    "headline": "一言生万象，重塑你的影像世界",
+    "subheadline": "我们的AI能读懂你的创意。简单描述，奇迹发生。告别复杂工具，释放纯粹想象力。",
+    "tryDemo": "立即体验",
+    "viewPricing": "查看价格",
+    "imagesProcessed": "处理图片数",
+    "happyUsers": "满意用户",
+    "uptime": "服务可用性"
+  },
+  "features": {
+    "title": "强大的AI功能",
+    "subtitle": "用人工智能的力量改变你的图像，你需要的一切功能都在这里",
+    "smartKeywords": {
+      "title": "智能关键词编辑",
+      "description": "使用我们强大的内置关键词，或自定义你的专属词汇，轻松修改图片风格、物体和氛围。"
+    },
+    "stylizedFilters": {
+      "title": "风格化滤镜",
+      "description": "一键应用「动漫」、「赛博朋克」、「梵高」或「写实」等多种艺术风格。"
+    },
+    "objectManipulation": {
+      "title": "物体替换与增减",
+      "description": "无缝增添、移除或替换图片中的物体。比如在「屋顶上加一只猫」，或「移除路人」。"
+    },
+    "highResolution": {
+      "title": "高分辨率输出",
+      "description": "支持高达4K分辨率的图像导出，满足印刷和数字展示需求。"
+    }
+  },
+  "demo": {
+    "title": "体验我们的AI图像编辑器",
+    "subtitle": "上传图片并描述你想要的变换效果。体验AI驱动的图像编辑力量。",
+    "uploadImage": "上传图片",
+    "dragDropOrClick": "拖拽图片到此处或点击上传",
+    "clickToChangeImage": "点击更换图片",
+    "fileFormatsSupported": "支持 JPG、PNG、WebP、AVIF 格式",
+    "describeChange": "描述你的变换",
+    "promptPlaceholder": "例如：'Make it look vintage' 或 'Add sunset lighting'（描述词请用英文）",
+    "quickKeywords": "快捷关键词：",
+    "aspectRatioLabel": "生成图片纵横比",
+    "aspectRatioPlaceholder": "选择纵横比（可选）",
+    "processing": "处理中...",
+    "processingTime": "这可能需要30-60秒...",
+    "generateImage": "生成图片",
+    "result": "结果",
+    "processingImage": "AI正在变换你的图片...",
+    "resultWillAppear": "变换后的图片将在这里显示",
+    "sliderInstruction": "拖动滑块查看AI变换效果",
+    "downloadImage": "下载图片",
+    "downloadReminder": "⚠️ 图片不会保存在服务器，请及时下载",
+    "downloadSuccess": "图片下载成功！",
+    "loginRequired": "需要登录",
+    "loginRequiredDesc": "请登录后使用图片生成功能",
+    "creditBalance": "积分余额",
+    "creditCost": "每次编辑消耗10积分",
+    "availableCredits": "可用积分",
+    "creditsDeducted": "已扣除",
+    "creditsRemaining": "剩余",
+    "generateSuccess": "图片生成成功！",
+    "insufficientCredits": "积分不足",
+    "insufficientCreditsDesc": "您的积分不足以完成此操作，请充值或升级账户",
+    "presetKeywords": {
+      "retro": "复古风格",
+      "cyberpunk": "赛博朋克风格", 
+      "anime": "动漫风格",
+      "removeBackground": "移除背景",
+      "colorizeOldPhoto": "老照片上色"
+    },
+    "presetPrompts": {
+      "retro": "Please convert the image to retro style",
+      "cyberpunk": "Please convert the image into cyberpunk style", 
+      "anime": "Please convert the image into anime style",
+      "removeBackground": "Please remove image background",
+      "colorizeOldPhoto": "Restore and colorize this image. Remove any scratches or imperfections."
+    }
+  },
+  "pricing": {
+    "title": "选择适合您的计划",
+    "subtitle": "灵活的定价方案，满足不同需求",
+    "mostPopular": "最受欢迎",
+    "saveAmount": "立省$4",
+    "loginRequired": "需要登录",
+    "loginRequiredDesc": "请先登录后再进行订阅",
+    "subscriptionFailed": "订阅失败",
+    "subscriptionError": "创建支付会话时发生错误",
+    "processing": "处理中...",
+    "invalidResponse": "服务器返回了无效的响应格式",
+    "createSessionFailed": "创建支付会话失败",
+    "noPaymentUrl": "未收到支付页面链接",
+    "networkError": "网络连接错误，请检查网络连接",
+    "perMonth": "/月",
+    "free": {
+      "name": "免费版",
+      "price": "$0",
+      "description": "适合偶尔尝试",
+      "feature1": "赠送20积分（约2次生成）",
+      "feature2": "基础关键词",
+      "feature3": "带水印导出",
+      "cta": "立即体验"
+    },
+    "pro": {
+      "name": "专业版",
+      "originalPrice": "$9.99",
+      "price": "$5.99",
+      "description": "适合创作者和设计师",
+      "feature1": "每月800积分（约80次生成）",
+      "feature2": "所有内置和自定义关键词",
+      "feature3": "无水印高清导出",
+      "feature4": "优先处理",
+      "cta": "开始使用专业版"
+    },
+    "enterprise": {
+      "name": "企业版",
+      "price": "联系我们",
+      "description": "适合大型团队",
+      "feature1": "无限积分",
+      "feature3": "专属客服",
+      "cta": "联系销售"
+    },
+    "alreadySubscribed": "您已有活跃订阅，无需重复订阅",
+    "subscribe": "订阅",
+    "subscribedPro": "已订阅Pro版"
+  },
+  "testimonials": {
+    "title": "用户评价",
+    "subtitle": "加入数千名已经在使用 Aiartools 转换图像的创作者",
+    "testimonial1": {
+      "content": "Aiartools 彻底改变了我的工作流程。以前在 Photoshop 中需要花费数小时的工作，现在只需要几秒钟。",
+      "role": "数字艺术家"
+    },
+    "testimonial2": {
+      "content": "这个工具太棒了！我用它为我的社交媒体帖子创建引人注目的图像。",
+      "role": "社交媒体经理"
+    },
+    "testimonial3": {
+      "content": "AI 转换的质量令人难以置信。就像有一个专业设计师在你的指尖。",
+      "role": "市场总监"
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "subtitle": "关于 Aiartools 你需要知道的一切",
+    "q1": {
+      "question": "它是如何工作的？",
+      "answer": "Aiartools 使用先进的 AI 模型来理解你的文本描述，并对你的图像应用相应的转换。只需上传图像，描述你想要的变化，我们的 AI 就会生成结果。"
+    },
+    "q2": {
+      "question": "我的数据安全吗？",
+      "answer": "是的，我们非常重视数据安全。所有上传的图像都是安全处理的，并在 24 小时后从我们的服务器中自动删除。我们从不与第三方分享你的图像。"
+    },
+    "q3": {
+      "question": "支持哪些图像格式？",
+      "answer": "我们支持所有常见的图像格式，包括: JPG, JPEG, PNG, WebP, AVIF (最大5MB)"
+    },
+    "q4": {
+      "question": "我可以商业使用生成的图像吗？",
+      "answer": "是的，使用 Aiartools 生成的所有图像都可以用于商业目的。你保留对转换后图像的完整权利。"
+    },
+    "q5": {
+      "question": "如果我对结果不满意怎么办？",
+      "answer": "我们不断努力改进AI模型。如果您对结果不满意，请提供反馈，以便我们改进。"
+    }
+  },
+  "blog": {
+    "title": "博客最新文章",
+    "subtitle": "了解最新的AI图像编辑趋势和教程",
+    "readMore": "阅读更多",
+    "viewAllPosts": "查看所有文章",
+    "allPosts": "所有文章",
+    "posts": {
+      "contact": {
+        "title": "联系Aiartools团队",
+        "excerpt": "了解联系我们支持团队、提交反馈或报告问题的各种方式。我们在这里帮助您充分利用我们的AI图像转换工具。",
+        "date": "2025年6月1日",
+        "category": "联系我们",
+        "readTime": "3 分钟阅读"
+      },
+      "editingGuide": {
+        "title": "完整指南：如何使用Aiartools编辑图片",
+        "excerpt": "逐步学习如何使用AI创建令人惊叹的图像变换。从上传图片到编写有效的提示词，这个全面的指南涵盖了您需要了解的一切。",
+        "date": "2025年6月1日",
+        "category": "教程",
+        "readTime": "8 分钟阅读"
+      },
+      "introduction": {
+        "title": "Aiartools介绍：用AI的力量改变你的图像",
+        "excerpt": "今天，我们很高兴地介绍Aiartools，这是一个革命性的AI驱动图像转换平台，允许您使用简单的文本提示编辑和转换图像。",
+        "date": "2025年5月31日",
+        "category": "产品",
+        "readTime": "5 分钟阅读"
+      }
+    }
+  },
+  "footer": {
+    "description": "用AI的力量改变你的图像。简单、快速、功能强大。",
+    "product": {
+      "title": "产品",
+      "features": "功能特色",
+      "pricing": "价格方案",
+      "api": "API接口",
+      "integrations": "集成服务"
+    },
+    "support": {
+      "title": "支持",
+      "help": "帮助中心",
+      "contact": "联系我们",
+      "status": "服务状态",
+      "community": "社区"
+    },
+    "resources": {
+      "title": "资源",
+      "help": "帮助中心",
+      "documentation": "文档",
+      "tutorials": "教程",
+      "community": "社区"
+    },
+    "friendlyLinks": {
+      "title": "友情链接",
+      "itusi": "ITUSI",
+      "voiceCanvas": "VoiceCanvas",
+      "pdf2md": "PDF2MD"
+    },
+    "newsletter": {
+      "title": "保持更新",
+      "description": "获取最新更新和技巧，直接发送到你的邮箱。",
+      "placeholder": "输入你的邮箱",
+      "subscribe": "订阅"
+    },
+    "copyright": "保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "cookies": "Cookie政策"
+  },
+  "api": {
+    "errors": {
+      "noFile": "请上传图片文件",
+      "unsupportedFormat": "不支持的文件格式。支持的格式：JPG, JPEG, PNG, WebP, AVIF",
+      "fileTooLarge": "文件大小不能超过 5MB",
+      "preciseNeedsPrompt": "精确编辑需要提供提示词",
+      "creativeNeedsPrompt": "创意编辑需要提供提示词",
+      "smartNeedsPrompt": "智能编辑需要提供提示词",
+      "processingFailed": "处理失败，请稍后重试",
+      "loginRequired": "请先登录后再使用图片编辑功能",
+      "userNotFound": "用户不存在",
+      "insufficientCredits": "积分不足，每次编辑需要10积分",
+      "unsupportedImageFormat": "不支持的图片格式，请上传 JPG、PNG、WebP 或 AVIF 格式的图片",
+      "imageTooLarge": "图片文件过大，请上传小于 5MB 的图片",
+      "processingError": "图片处理失败，请重试"
+    },
+    "info": {
+      "message": "图片编辑 API",
+      "version": "2.2"
+    }
+  },
+  "credit_description": {
+    "registration_bonus": "注册赠送积分",
+    "background_removal": "图片编辑: 背景移除",
+    "image_edit": "图片编辑",
+    "subscription_activated": "订阅激活 - Pro会员积分",
+    "purchase_credits": "购买积分",
+    "subscription_expired": "订阅过期 - 订阅积分已清零"
+  },
+  "aspectRatios": {
+    "original": "保持原图比例",
+    "ultrawide": "超宽屏 (21:9)",
+    "widescreen": "宽屏 (16:9)",
+    "standard": "标准 (4:3)",
+    "classic": "经典 (3:2)",
+    "square": "正方形 (1:1)",
+    "portraitClassic": "竖版经典 (2:3)",
+    "portraitStandard": "竖版标准 (3:4)",
+    "portraitWidescreen": "竖版宽屏 (9:16)",
+    "portraitUltrawide": "竖版超宽 (9:21)"
+  },
+  "errors": {
+    "fileTooLarge": "图片文件大小不能超过5MB",
+    "unsupportedFormat": "请上传支持的图片格式：JPG, JPEG, PNG, WebP, AVIF",
+    "uploadAndPrompt": "请上传图片并输入提示词",
+    "networkFailed": "网络连接失败，请检查网络连接后重试",
+    "serverError": "服务器内部错误，请稍后重试",
+    "invalidApiKey": "API密钥无效，请检查配置",
+    "rateLimited": "API调用频率过高，请稍后重试",
+    "processingFailed": "处理失败，请稍后重试",
+    "processingError": "处理错误详情:",
+    "invalidData": "API返回的数据格式不正确：缺少data字段",
+    "noImages": "API返回的数据格式不正确：缺少images数组",
+    "noGeneratedImages": "API未返回任何生成的图片",
+    "invalidImageUrl": "生成的图片缺少有效的URL",
+    "downloadFailed": "下载失败，请稍后重试"
+  },
+  "logs": {
+    "callingKontextSmart": "调用 Kontext Pro 模型进行智能编辑...",
+    "callingKontextPrecise": "调用 Kontext Pro 模型进行精确编辑...",
+    "callingKontextCreative": "调用 Kontext Pro 模型进行创意编辑...",
+    "callingKontextBackground": "调用 Kontext Pro 模型进行背景移除...",
+    "processing": "处理中...",
+    "falResponse": "Fal AI 响应:",
+    "responseAnalysis": "========== Fal AI 详细响应分析 ==========",
+    "completeResponse": "完整响应对象:",
+    "resultImages": "result.images:",
+    "resultData": "result.data:",
+    "resultDataType": "result.data类型:",
+    "resultDataImages": "result.data.images:",
+    "resultDataImage": "result.data.image:",
+    "analysisEnd": "=======================================",
+    "imageNotFound": "未找到图片数据:",
+    "invalidImageData": "API返回了无效的图片数据",
+    "noImagesReturned": "API未返回任何图片",
+    "sendingRequest": "发送请求到 API...",
+    "receivedResponse": "收到响应，状态:",
+    "apiResponseData": "API 响应数据:",
+    "successImageUrl": "成功获取图片URL:"
+  },
+  "auth": {
+    "register": {
+      "pageTitle": "注册 - Aiartools",
+      "title": "创建账户",
+      "subtitle": "开始使用Aiartools",
+      "email": "邮箱地址",
+      "emailPlaceholder": "请输入您的邮箱地址",
+      "password": "密码",
+      "passwordPlaceholder": "密码至少6位",
+      "agreeToTerms": "注册即表示您同意我们的",
+      "privacyPolicy": "隐私政策",
+      "termsOfService": "服务协议",
+      "registerButton": "注册",
+      "alreadyHaveAccount": "已有账户？",
+      "loginLink": "立即登录",
+      "registering": "注册中...",
+      "registerSuccess": "注册成功！",
+      "verificationEmailSent": "验证邮件已发送到您的邮箱",
+      "signUpWithGoogle": "使用Google注册",
+      "signUpWithGithub": "使用GitHub注册",
+      "orContinueWith": "或者继续使用"
+    },
+    "login": {
+      "pageTitle": "登录 - Aiartools",
+      "title": "欢迎回来",
+      "subtitle": "登录您的账户",
+      "email": "邮箱地址",
+      "emailPlaceholder": "请输入您的邮箱地址",
+      "password": "密码",
+      "passwordPlaceholder": "请输入您的密码",
+      "forgotPassword": "忘记密码？",
+      "loginButton": "登录",
+      "loginWithGoogle": "使用Google登录",
+      "loginWithGithub": "使用GitHub登录",
+      "noAccount": "还没有账户？",
+      "registerLink": "立即注册",
+      "loggingIn": "登录中...",
+      "loginSuccess": "登录成功!",
+      "agreeToTerms": "使用我们的服务即表示您同意我们的",
+      "privacyPolicy": "隐私政策",
+      "termsOfService": "用户协议",
+      "orContinueWith": "或者继续使用"
+    },
+    "dashboard": {
+      "pageTitle": "个人中心 - Aiartools",
+      "title": "个人中心",
+      "welcome": "欢迎回来",
+      "email": "邮箱",
+      "emailStatus": "邮箱状态",
+      "verified": "已验证",
+      "unverified": "未验证",
+      "resendVerification": "重新发送验证邮件",
+      "joinDate": "注册时间",
+      "accountSettings": "账户设置",
+      "logout": "退出登录",
+      "verificationEmailSent": "验证邮件已发送",
+      "logoutSuccess": "退出登录成功",
+      "logoutFailed": "退出失败",
+      "logoutError": "退出登录时出现错误",
+      "loading": "加载中...",
+      "user": "用户",
+      "personalInfo": "个人信息",
+      "nameNotSet": "未设置姓名",
+      "accountStatus": "账户状态",
+      "accountType": "账户类型：免费用户",
+      "statusNormal": "状态：正常",
+      "verifyEmailPrompt": "请验证您的邮箱以获得完整功能",
+      "quickActions": "快速操作",
+      "editProfile": "编辑个人资料",
+      "changePassword": "修改密码",
+      "recentActivity": "积分记录",
+      "recentActivityDesc": "您的积分消费记录",
+      "accountLogin": "账户登录",
+      "justNow": "刚刚",
+      "noMoreActivity": "暂无更多活动记录",
+      "creditBalance": "积分余额",
+      "availableCredits": "当前可用积分",
+      "editProfileTitle": "编辑个人资料",
+      "editProfileDesc": "更新您的个人信息",
+      "usernameLabel": "用户名",
+      "usernamePlaceholder": "请输入您的用户名",
+      "emailLabel": "邮箱",
+      "emailCannotModify": "邮箱地址无法修改",
+      "saving": "保存中...",
+      "save": "保存",
+      "cancel": "取消",
+      "profileUpdated": "个人资料已更新",
+      "profileUpdatedDesc": "您的个人信息已成功保存。",
+      "updateFailed": "更新失败",
+      "updateError": "保存个人资料时出现错误",
+      "networkError": "网络错误，请稍后重试",
+      "activityTypes": {
+        "credit_deduct": "积分扣除",
+        "credit_add": "积分增加", 
+        "image_generation": "图片生成",
+        "login": "账户登录",
+        "registration_bonus": "注册赠送",
+        "subscription_activated": "订阅激活",
+        "other": "其他活动"
+      },
+      "noActivities": "暂无活动记录",
+      "noActivitiesDesc": "您的积分使用记录将在这里显示",
+      "loadingActivities": "加载中...",
+      "permanentCredits": "永久积分",
+      "subscriptionCredits": "订阅积分",
+      "totalCredits": "总积分",
+      "subscriptionStatus": "订阅状态",
+      "membershipActive": "会员已激活",
+      "expiresAt": "到期时间",
+      "nextBilling": "下次扣费",
+      "freeVersion": "免费版",
+      "upgradeToGetMoreFeatures": "升级获取更多功能",
+      "processing": "处理中...",
+      "subscribedPro": "已订阅Pro版",
+      "subscribePro": "订阅Pro版",
+      "unknown": "未知"
+    },
+    "forgotPassword": {
+      "pageTitle": "重置密码 - Aiartools",
+      "title": "重置密码",
+      "subtitle": "输入您的邮箱地址，我们将发送重置密码链接",
+      "email": "邮箱地址",
+      "emailPlaceholder": "请输入您的邮箱地址",
+      "sendResetLink": "发送重置链接",
+      "backToLogin": "返回登录",
+      "sending": "发送中...",
+      "emailSent": "重置链接已发送到您的邮箱",
+      "emailSentTitle": "重置链接已发送",
+      "emailSentDesc": "我们已向您的邮箱发送了密码重置链接",
+      "checkEmailAt": "请检查您的邮箱：",
+      "noEmailReceived": "没有收到邮件？请检查垃圾邮件文件夹，或者",
+      "resendLink": "重新发送",
+      "agreeToTerms": "使用我们的服务即表示您同意我们的",
+      "privacyPolicy": "隐私政策",
+      "termsOfService": "用户协议"
+    },
+    "verifyEmail": {
+      "pageTitle": "验证邮箱 - Aiartools",
+      "title": "验证您的邮箱",
+      "verifying": "正在验证...",
+      "success": "邮箱验证成功！",
+      "error": "验证失败",
+      "invalidToken": "验证链接无效或已过期",
+      "alreadyVerified": "邮箱已验证",
+      "backToLogin": "返回登录",
+      "goToDashboard": "前往个人中心",
+      "successTitle": "您现在可以：",
+      "canLogin": "使用您的账户登录",
+      "accessFeatures": "访问所有功能",
+      "enjoyService": "享受完整的服务体验",
+      "possibleReasons": "可能的原因：",
+      "linkExpired": "验证链接已过期",
+      "linkInvalid": "验证链接无效",
+      "registerAgain": "重新注册"
+    },
+    "verifyEmailSent": {
+      "pageTitle": "验证邮件已发送 - Aiartools",
+      "title": "验证邮件已发送",
+      "message": "我们已向您的邮箱发送了验证链接，请查收邮件并点击链接完成验证。",
+      "checkSpam": "如果您没有收到邮件，请检查垃圾邮件文件夹。",
+      "resendEmail": "重新发送验证邮件",
+      "backToLogin": "返回登录",
+      "stepsTitle": "请按照以下步骤完成验证：",
+      "step1": "检查您的邮箱收件箱",
+      "step2": "查找来自Aiartools的邮件",
+      "step3": "点击邮件中的验证链接",
+      "step4": "完成验证后即可登录",
+      "differentEmail": "使用其他邮箱注册"
+    },
+    "errors": {
+      "invalidCredentials": "邮箱或密码错误",
+      "userNotFound": "用户不存在",
+      "userAlreadyExists": "用户已存在",
+      "emailRequired": "请输入邮箱地址",
+      "passwordRequired": "请输入密码",
+      "invalidEmail": "请输入有效的邮箱地址",
+      "passwordTooShort": "密码至少需要6位",
+      "passwordMismatch": "两次输入的密码不一致",
+      "networkError": "网络错误，请稍后重试",
+      "verificationFailed": "验证失败，请重试",
+      "tokenExpired": "验证链接已过期",
+      "emailNotVerified": "请先验证您的邮箱",
+      "unauthorized": "请先登录"
+    }
+  },
+  "payment": {
+    "success": {
+      "processing": "正在处理支付结果...",
+      "processingDesc": "请稍等，我们正在验证您的支付信息",
+      "title": "支付成功！",
+      "subtitle": "您的订阅已成功激活",
+      "backToDashboard": "回到个人中心",
+      "startUsing": "开始使用",
+      "subscriptionDetails": "订阅详情",
+      "subscriptionPlan": "订阅计划",
+      "proVersion": "Pro 专业版",
+      "monthlyCredits": "月度积分",
+      "credits800": "800 积分",
+      "subscriptionFee": "订阅费用",
+      "pricePerMonth": "¥5.99/月",
+      "status": "状态",
+      "activated": "已激活",
+      "thankYou": "感谢您选择 Aiartools Pro！",
+      "autoRenewal": "您的订阅将自动续订，可随时取消。"
+    }
+  }
+}

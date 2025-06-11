@@ -1,0 +1,540 @@
+{
+  "seo": {
+    "title": "Aiartools - Transform Your Images with AI Power",
+    "description": "Transform your images with the power of AI. Simple, fast, and incredibly powerful. Support smart editing, style conversion, background removal and more AI image processing features.",
+    "keywords": "AI image editing,artificial intelligence,image processing,AI photo editing,smart editing,style transfer,background removal,image enhancement",
+    "ogTitle": "Aiartools - Leading AI Image Editing Platform",
+    "ogDescription": "Experience the most advanced AI image editing technology. Transform complex image variations with simple text descriptions. Support multiple styles, smart editing, background processing and more.",
+    "twitterTitle": "Aiartools - AI Image Editing Tool",
+    "twitterDescription": "🎨 Transform your image world with AI! Simple descriptions, intelligent transformations, experience unprecedented image editing."
+  },
+  "navigation": {
+    "home": "Home",
+    "features": "Features",
+    "demo": "Demo",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "login": "Login",
+    "register": "Sign Up",
+    "dashboard": "Dashboard",
+    "logout": "Logout"
+  },
+  "auth": {
+    "register": {
+      "pageTitle": "Sign Up - Aiartools",
+      "title": "Create an account",
+      "subtitle": "Get started with Aiartools",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "password": "Password",
+      "passwordPlaceholder": "Password (at least 6 characters)",
+      "agreeToTerms": "By signing up, you agree to our",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "registerButton": "Sign Up",
+      "alreadyHaveAccount": "Already have an account?",
+      "loginLink": "Sign In",
+      "registering": "Signing up...",
+      "registerSuccess": "Registration successful!",
+      "verificationEmailSent": "Verification email sent to your inbox",
+      "signUpWithGoogle": "Sign up with Google",
+      "signUpWithGithub": "Sign up with GitHub",
+      "orContinueWith": "Or continue with"
+    },
+    "login": {
+      "pageTitle": "Sign In - Aiartools",
+      "title": "Welcome back",
+      "subtitle": "Sign in to your account",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "forgotPassword": "Forgot password?",
+      "loginButton": "Sign In",
+      "loginWithGoogle": "Sign in with Google",
+      "loginWithGithub": "Sign in with GitHub",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Sign Up",
+      "loggingIn": "Signing in...",
+      "loginSuccess": "Sign in successful!",
+      "agreeToTerms": "By using our service, you agree to our",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "orContinueWith": "Or continue with"
+    },
+    "dashboard": {
+      "pageTitle": "Dashboard - Aiartools",
+      "title": "Dashboard",
+      "welcome": "Welcome back",
+      "email": "Email",
+      "emailStatus": "Email Status",
+      "verified": "Verified",
+      "unverified": "Unverified",
+      "resendVerification": "Resend verification email",
+      "joinDate": "Member since",
+      "accountSettings": "Account Settings",
+      "logout": "Logout",
+      "verificationEmailSent": "Verification email sent",
+      "logoutSuccess": "Logout successful",
+      "logoutFailed": "Logout failed",
+      "logoutError": "An error occurred during logout",
+      "loading": "Loading...",
+      "user": "User",
+      "personalInfo": "Personal Information",
+      "nameNotSet": "Name not set",
+      "accountStatus": "Account Status",
+      "accountType": "Account Type: Free User",
+      "statusNormal": "Status: Normal",
+      "verifyEmailPrompt": "Please verify your email to access all features",
+      "quickActions": "Quick Actions",
+      "editProfile": "Edit Profile",
+      "changePassword": "Change Password",
+      "recentActivity": "Credit Records",
+      "recentActivityDesc": "Your credit usage records",
+      "accountLogin": "Account Login",
+      "justNow": "Just now",
+      "noMoreActivity": "No more activity records",
+      "creditBalance": "Credit Balance",
+      "availableCredits": "Available Credits",
+      "editProfileTitle": "Edit Profile",
+      "editProfileDesc": "Update your personal information",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "Enter your username",
+      "emailLabel": "Email",
+      "emailCannotModify": "Email address cannot be modified",
+      "saving": "Saving...",
+      "save": "Save",
+      "cancel": "Cancel",
+      "profileUpdated": "Profile Updated",
+      "profileUpdatedDesc": "Your personal information has been saved successfully.",
+      "updateFailed": "Update Failed",
+      "updateError": "Error saving profile",
+      "networkError": "Network error, please try again",
+      "activityTypes": {
+        "credit_deduct": "Credit Deducted",
+        "credit_add": "Credit Added", 
+        "image_generation": "Image Generated",
+        "login": "Account Login",
+        "registration_bonus": "Registration Bonus",
+        "subscription_activated": "Subscription Activated",
+        "other": "Other Activity"
+      },
+      "noActivities": "No activities yet",
+      "noActivitiesDesc": "Your credit usage history will appear here",
+      "loadingActivities": "Loading...",
+      "permanentCredits": "Permanent Credits",
+      "subscriptionCredits": "Subscription Credits",
+      "totalCredits": "Total Credits",
+      "subscriptionStatus": "Subscription Status",
+      "membershipActive": "Membership Active",
+      "expiresAt": "Expires At",
+      "nextBilling": "Next Billing",
+      "freeVersion": "Free Version",
+      "upgradeToGetMoreFeatures": "Upgrade to get more features",
+      "subscribedPro": "Subscribed Pro",
+      "subscribePro": "Subscribe Pro",
+      "unknown": "Unknown"
+    },
+    "forgotPassword": {
+      "pageTitle": "Reset Password - Aiartools",
+      "title": "Reset Password",
+      "subtitle": "Enter your email address and we'll send you a password reset link",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "sendResetLink": "Send Reset Link",
+      "backToLogin": "Back to Login",
+      "sending": "Sending...",
+      "emailSent": "Reset link sent to your email",
+      "emailSentTitle": "Reset Link Sent",
+      "emailSentDesc": "We've sent a password reset link to your email",
+      "checkEmailAt": "Please check your email:",
+      "noEmailReceived": "Didn't receive the email? Check your spam folder, or",
+      "resendLink": "Resend",
+      "agreeToTerms": "By using our service, you agree to our",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service"
+    },
+    "verifyEmail": {
+      "pageTitle": "Verify Email - Aiartools",
+      "title": "Verify Your Email",
+      "verifying": "Verifying...",
+      "success": "Email verified successfully!",
+      "error": "Verification failed",
+      "invalidToken": "Invalid or expired verification link",
+      "alreadyVerified": "Email already verified",
+      "backToLogin": "Back to Login",
+      "goToDashboard": "Go to Dashboard",
+      "successTitle": "You can now:",
+      "canLogin": "Log in with your account",
+      "accessFeatures": "Access all features",
+      "enjoyService": "Enjoy the complete service experience",
+      "possibleReasons": "Possible reasons:",
+      "linkExpired": "Verification link has expired",
+      "linkInvalid": "Verification link is invalid",
+      "registerAgain": "Register again"
+    },
+    "verifyEmailSent": {
+      "pageTitle": "Verification Email Sent - Aiartools",
+      "title": "Verification Email Sent",
+      "message": "We've sent a verification link to your email. Please check your email and click the link to complete verification.",
+      "checkSpam": "If you don't see the email, please check your spam folder.",
+      "resendEmail": "Resend verification email",
+      "backToLogin": "Back to Login",
+      "stepsTitle": "Please follow these steps to complete verification:",
+      "step1": "Check your email inbox",
+      "step2": "Look for an email from Aiartools",
+      "step3": "Click the verification link in the email",
+      "step4": "Complete verification to log in",
+      "differentEmail": "Register with a different email"
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "userNotFound": "User not found",
+      "userAlreadyExists": "User already exists",
+      "emailRequired": "Email is required",
+      "passwordRequired": "Password is required",
+      "invalidEmail": "Please enter a valid email",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "passwordMismatch": "Passwords do not match",
+      "networkError": "Network error, please try again",
+      "verificationFailed": "Verification failed, please try again",
+      "tokenExpired": "Verification link has expired",
+      "emailNotVerified": "Please verify your email first",
+      "unauthorized": "Please log in first"
+    }
+  },
+  "hero": {
+    "headline": "Transform Your Images with a Single Word",
+    "subheadline": "Our AI understands your creative vision. Describe the change, and watch it happen. No complex tools, just pure imagination.",
+    "tryDemo": "Try a Demo",
+    "viewPricing": "View Pricing",
+    "imagesProcessed": "Images Processed",
+    "happyUsers": "Happy Users",
+    "uptime": "Uptime"
+  },
+  "features": {
+    "title": "Powerful AI Features",
+    "subtitle": "Everything you need to transform your images with the power of artificial intelligence",
+    "smartKeywords": {
+      "title": "Smart Keyword Editing",
+      "description": "Use our powerful built-in keywords or define your own to modify styles, objects, and ambiances."
+    },
+    "stylizedFilters": {
+      "title": "Stylized Filters",
+      "description": "Instantly apply styles like 'Anime', 'Cyberpunk', 'Van Gogh', or 'Realistic' with one click."
+    },
+    "objectManipulation": {
+      "title": "Object Manipulation",
+      "description": "Seamlessly add, remove, or replace objects in your photos. Add a 'cat on the roof' or remove 'unwanted people'."
+    },
+    "highResolution": {
+      "title": "High-Resolution Export",
+      "description": "Export your creations in up to 4K resolution, ready for print and digital use."
+    }
+  },
+  "demo": {
+    "title": "Try Our AI Image Editor",
+    "subtitle": "Upload an image and describe how you'd like to transform it. Experience the power of AI-driven image editing.",
+    "uploadImage": "Upload Image",
+    "dragDropOrClick": "Drag and drop an image here, or click to upload",
+    "clickToChangeImage": "Click to change image",
+    "fileFormatsSupported": "Supports JPG, PNG, WebP, AVIF formats",
+    "describeChange": "Describe Your Change",
+    "promptPlaceholder": "e.g., 'Make it look vintage' or 'Add sunset lighting'",
+    "quickKeywords": "Quick Keywords:",
+    "aspectRatioLabel": "Image Aspect Ratio",
+    "aspectRatioPlaceholder": "Select aspect ratio (optional)",
+    "processing": "Processing...",
+    "processingTime": "This may take 30-60 seconds...",
+    "generateImage": "Generate Image",
+    "result": "Result",
+    "processingImage": "AI is transforming your image...",
+    "resultWillAppear": "Your transformed image will appear here",
+    "sliderInstruction": "Drag the slider to see the AI transformation",
+    "downloadImage": "Download Image",
+    "downloadReminder": "⚠️ Images are not saved on our servers. Please download promptly",
+    "downloadSuccess": "Image downloaded successfully!",
+    "loginRequired": "Login Required",
+    "loginRequiredDesc": "Please log in to use image generation features",
+    "creditBalance": "Credit Balance",
+    "creditCost": "10 credits per generation",
+    "availableCredits": "Available Credits",
+    "creditsDeducted": "Credits deducted:",
+    "creditsRemaining": "Remaining:",
+    "generateSuccess": "Image generated successfully!",
+    "insufficientCredits": "Insufficient credits",
+    "insufficientCreditsDesc": "You don't have enough credits to complete this operation. Please purchase more credits or upgrade your account.",
+    "presetKeywords": {
+      "retro": "Retro Style",
+      "cyberpunk": "Cyberpunk Style", 
+      "anime": "Anime Style",
+      "removeBackground": "Remove Background",
+      "colorizeOldPhoto": "Colorize Old Photo"
+    },
+    "presetPrompts": {
+      "retro": "Please convert the image to retro style",
+      "cyberpunk": "Please convert the image into cyberpunk style", 
+      "anime": "Please convert the image into anime style",
+      "removeBackground": "Please remove image background",
+      "colorizeOldPhoto": "Restore and colorize this image. Remove any scratches or imperfections."
+    }
+  },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "subtitle": "Flexible pricing options for different needs",
+    "mostPopular": "Most Popular",
+    "saveAmount": "Save $4",
+    "loginRequired": "Login Required",
+    "loginRequiredDesc": "Please login before subscribing",
+    "subscriptionFailed": "Subscription Failed",
+    "subscriptionError": "Error creating payment session",
+    "processing": "Processing...",
+    "invalidResponse": "Server returned invalid response format", 
+    "createSessionFailed": "Failed to create payment session",
+    "noPaymentUrl": "No payment page URL received",
+    "networkError": "Network connection error, please check your connection",
+    "perMonth": "/month",
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "description": "Perfect for trying out",
+      "feature1": "20 credits included (~2 generations)",
+      "feature2": "Basic keywords",
+      "feature3": "Watermarked exports",
+      "cta": "Try Demo"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$5.99",
+      "originalPrice": "$9.99",
+      "description": "For creators and designers",
+      "feature1": "800 credits per month (~80 generations)",
+      "feature2": "All built-in and custom keywords",
+      "feature3": "High-quality exports without watermark",
+      "feature4": "Priority processing",
+      "cta": "Get Started with Pro"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "Contact Us",
+      "description": "For large teams",
+      "feature1": "Unlimited credits",
+      "feature3": "Dedicated support",
+      "cta": "Contact Sales"
+    },
+    "alreadySubscribed": "You already have an active subscription and cannot subscribe again",
+    "subscribe": "Subscribe",
+    "subscribedPro": "Subscribed to Pro"
+  },
+  "testimonials": {
+    "title": "What Our Users Say",
+    "subtitle": "Join thousands of creators who are already transforming their images with Aiartools",
+    "testimonial1": {
+      "content": "Aiartools has revolutionized my workflow. What used to take hours in Photoshop now takes seconds.",
+      "role": "Digital Artist"
+    },
+    "testimonial2": {
+      "content": "This tool is amazing! I use it to create eye-catching images for my social media posts.",
+      "role": "Social Media Manager"
+    },
+    "testimonial3": {
+      "content": "The quality of AI transformations is incredible. It's like having a professional designer at your fingertips.",
+      "role": "Marketing Director"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Aiartools",
+    "q1": {
+      "question": "How does it work?",
+      "answer": "Aiartools uses advanced AI models to understand your text descriptions and apply corresponding transformations to your images. Simply upload an image, describe the change you want, and our AI will generate the result."
+    },
+    "q2": {
+      "question": "Is my data secure?",
+      "answer": "Yes, we take data security seriously. All uploaded images are processed securely and are automatically deleted from our servers after 24 hours. We never share your images with third parties."
+    },
+    "q3": {
+      "question": "What image formats are supported?",
+      "answer": "We support all common image formats, including: JPG, JPEG, PNG, WebP, AVIF (up to 5MB)"
+    },
+    "q4": {
+      "question": "Can I use the generated images commercially?",
+      "answer": "Yes, all images generated with Aiartools can be used for commercial purposes. You retain full rights to your transformed images."
+    },
+    "q5": {
+      "question": "What if I'm not satisfied with the results?",
+      "answer": "We are constantly working to improve our AI models. If you are not satisfied with the results, please provide feedback so we can improve."
+    }
+  },
+  "blog": {
+    "title": "Latest from Our Blog",
+    "subtitle": "Stay updated with the latest AI image editing trends and tutorials",
+    "readMore": "Read More",
+    "viewAllPosts": "View All Posts",
+    "allPosts": "All Posts",
+    "posts": {
+      "contact": {
+        "title": "Get in Touch with Aiartools Team",
+        "excerpt": "Learn about the various ways to contact our support team, submit feedback, or report issues. We're here to help you make the most of our AI image transformation tools.",
+        "date": "June 1, 2025",
+        "category": "Contact",
+        "readTime": "3 min read"
+      },
+      "editingGuide": {
+        "title": "Complete Guide: How to Edit Images with Aiartools",
+        "excerpt": "Learn step-by-step how to create stunning image transformations using AI. From uploading images to writing effective prompts, this comprehensive guide covers everything you need to know.",
+        "date": "June 1, 2025",
+        "category": "Tutorial",
+        "readTime": "8 min read"
+      },
+      "introduction": {
+        "title": "Introducing Aiartools: Transform Your Images with the Power of AI",
+        "excerpt": "Today, we're excited to introduce Aiartools, a revolutionary AI-powered image transformation platform that allows you to edit and transform your images using simple text prompts.",
+        "date": "May 31, 2025",
+        "category": "Product",
+        "readTime": "5 min read"
+      }
+    }
+  },
+  "footer": {
+    "description": "Transform your images with the power of AI. Simple, fast, and incredibly powerful.",
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "api": "API",
+      "integrations": "Integrations"
+    },
+    "support": {
+      "title": "Support",
+      "help": "Help Center",
+      "contact": "Contact Us",
+      "status": "Status",
+      "community": "Community"
+    },
+    "resources": {
+      "title": "Resources",
+      "help": "Help Center",
+      "documentation": "Documentation",
+      "tutorials": "Tutorials",
+      "community": "Community"
+    },
+    "friendlyLinks": {
+      "title": "Friendly Links",
+      "itusi": "ITUSI",
+      "voiceCanvas": "VoiceCanvas", 
+      "pdf2md": "PDF2MD"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Get the latest updates and tips delivered to your inbox.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe"
+    },
+    "copyright": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
+  },
+  "api": {
+    "errors": {
+      "noFile": "Please upload an image file",
+      "unsupportedFormat": "Unsupported file format. Supported formats: JPG, JPEG, PNG, WebP, AVIF",
+      "fileTooLarge": "File size cannot exceed 5MB",
+      "preciseNeedsPrompt": "Precise editing requires a prompt",
+      "creativeNeedsPrompt": "Creative editing requires a prompt",
+      "smartNeedsPrompt": "Smart editing requires a prompt",
+      "processingFailed": "Processing failed, please try again later",
+      "loginRequired": "Please log in first to use image editing features",
+      "userNotFound": "User not found",
+      "insufficientCredits": "Insufficient credits, 10 credits required per edit",
+      "unsupportedImageFormat": "Unsupported image format, please upload JPG, PNG, WebP or AVIF format images",
+      "imageTooLarge": "Image file too large, please upload images smaller than 5MB",
+      "processingError": "Image processing failed, please try again"
+    },
+    "info": {
+      "message": "Image Edit API",
+      "version": "2.2"
+    }
+  },
+  "credit_description": {
+    "registration_bonus": "Registration Bonus",
+    "background_removal": "Image Edit: Background Removal",
+    "image_edit": "Image Edit",
+    "subscription_activated": "Subscription Activated - Pro Membership Credits",
+    "purchase_credits": "Credit Purchase",
+    "subscription_expired": "Subscription Expired - Subscription Credits Cleared"
+  },
+  "aspectRatios": {
+    "original": "Keep original ratio",
+    "ultrawide": "Ultra-wide (21:9)",
+    "widescreen": "Widescreen (16:9)",
+    "standard": "Standard (4:3)",
+    "classic": "Classic (3:2)",
+    "square": "Square (1:1)",
+    "portraitClassic": "Portrait Classic (2:3)",
+    "portraitStandard": "Portrait Standard (3:4)",
+    "portraitWidescreen": "Portrait Widescreen (9:16)",
+    "portraitUltrawide": "Portrait Ultra-wide (9:21)"
+  },
+  "errors": {
+    "fileTooLarge": "Image file size cannot exceed 5MB",
+    "unsupportedFormat": "Please upload supported image formats: JPG, JPEG, PNG, WebP, AVIF",
+    "uploadAndPrompt": "Please upload an image and enter a prompt",
+    "networkFailed": "Network connection failed, please check your connection and retry",
+    "serverError": "Internal server error, please try again later",
+    "invalidApiKey": "Invalid API key, please check configuration",
+    "rateLimited": "API call rate too high, please try again later",
+    "processingFailed": "Processing failed, please try again later",
+    "processingError": "Processing error details:",
+    "invalidData": "API returned incorrect data format: missing data field",
+    "noImages": "API returned incorrect data format: missing images array",
+    "noGeneratedImages": "API did not return any generated images",
+    "invalidImageUrl": "Generated image is missing a valid URL",
+    "downloadFailed": "Download failed, please try again later"
+  },
+  "logs": {
+    "callingKontextSmart": "Calling Kontext Pro model for smart editing...",
+    "callingKontextPrecise": "Calling Kontext Pro model for precise editing...",
+    "callingKontextCreative": "Calling Kontext Pro model for creative editing...",
+    "callingKontextBackground": "Calling Kontext Pro model for background removal...",
+    "processing": "Processing...",
+    "falResponse": "Fal AI response:",
+    "responseAnalysis": "========== Fal AI detailed response analysis ==========",
+    "completeResponse": "Complete response object:",
+    "resultImages": "result.images:",
+    "resultData": "result.data:",
+    "resultDataType": "result.data type:",
+    "resultDataImages": "result.data.images:",
+    "resultDataImage": "result.data.image:",
+    "analysisEnd": "=======================================",
+    "imageNotFound": "Image data not found:",
+    "invalidImageData": "API returned invalid image data",
+    "noImagesReturned": "API did not return any images",
+    "sendingRequest": "Sending request to API...",
+    "receivedResponse": "Received response, status:",
+    "apiResponseData": "API response data:",
+    "successImageUrl": "Successfully obtained image URL:"
+  },
+  "payment": {
+    "success": {
+      "processing": "Processing payment result...",
+      "processingDesc": "Please wait while we verify your payment information",
+      "title": "Payment Successful!",
+      "subtitle": "Your subscription has been successfully activated",
+      "backToDashboard": "Back to Dashboard",
+      "startUsing": "Start Using",
+      "subscriptionDetails": "Subscription Details",
+      "subscriptionPlan": "Subscription Plan",
+      "proVersion": "Pro Version",
+      "monthlyCredits": "Monthly Credits",
+      "credits800": "800 Credits",
+      "subscriptionFee": "Subscription Fee",
+      "pricePerMonth": "$5.99/month",
+      "status": "Status",
+      "activated": "Activated",
+      "thankYou": "Thank you for choosing Aiartools Pro!",
+      "autoRenewal": "Your subscription will auto-renew and can be cancelled anytime."
+    }
+  }
+}
