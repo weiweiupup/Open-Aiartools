@@ -52,12 +52,44 @@ pnpm install
 复制 `.env.example` 到 `.env.local` 文件并添加您的 API 密钥：
 
 ```env
-# Fal AI API 密钥 (必需)
-FAL_KEY=your_fal_ai_api_key_here
+# Fal AI API配置
+# 从 https://fal.ai 获取您的API密钥
+FAL_KEY=your_fal_api_key_here
 
-# 其他配置 (可选)
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+# DeepSeek API配置
+# 从 https://platform.deepseek.com 获取您的API密钥
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
+
+# 数据库配置
+# Neon数据库连接字符串
+DATABASE_URL=postgresql://username:password@hostname/database?sslmode=require
+
+# NextAuth.js配置
+NEXTAUTH_SECRET=your_nextauth_secret_here
+NEXTAUTH_URL=http://localhost:3000
+
+# Resend邮件服务配置
+RESEND_API_KEY=your_resend_api_key_here
+RESEND_FROM_EMAIL=noreply@yourdomain.com
+
+# JWT配置
+JWT_SECRET=your_jwt_secret_here
+
+# Stripe支付配置
+# 从 https://stripe.com 获取您的API密钥
+STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key_here
+STRIPE_SECRET_KEY=your_stripe_secret_key_here
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret_here
+STRIPE_PRICE_ID=your_stripe_price_id_here
 ```
+
+环境变量配置说明：
+1. 访问 [fal.ai](https://fal.ai) 注册账户，获取FAL_KEY
+2. 访问 [platform.deepseek.com](https://platform.deepseek.com) 注册账户，获取DEEPSEEK_API_KEY
+3. 访问 [neon.tech](https://neon.tech) 创建数据库，获取DATABASE_URL
+4. 访问 [resend.com](https://resend.com) 注册账户，获取RESEND_API_KEY
+5. 访问 [stripe.com](https://stripe.com) 注册账户，获取Stripe API密钥和价格ID
+6. 生成安全的密钥用于NEXTAUTH_SECRET和JWT_SECRET
 
 ### 4. 获取 API 密钥
 
