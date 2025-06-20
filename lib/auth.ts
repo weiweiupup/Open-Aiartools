@@ -6,6 +6,7 @@ import { db } from "./db"
 import { users, userActivities } from "./schema"
 import bcrypt from "bcryptjs"
 import { eq } from "drizzle-orm"
+import { CREDIT_CONFIG } from '@/lib/constants';
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   providers: [
@@ -117,14 +118,14 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
               // 更新user对象的id
               user.id = existingUser.id
             } else {
-              // 创建新用户，注册赠送20积分
+              // 创建新用户，注册赠送积分
               const [newUser] = await db.insert(users).values({
                 email: user.email,
                 username: user.name,
                 image: user.image,
                 isEmailVerified: true,
                 emailVerified: new Date(),
-                credits: 20,
+                credits: CREDIT_CONFIG.REGISTRATION_BONUS,
               }).returning()
               
               // 记录注册赠送积分的活动
@@ -133,7 +134,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
                   userId: newUser.id,
                   type: 'registration_bonus',
                   description: 'credit_description.registration_bonus',
-                  creditAmount: 20,
+                  creditAmount: CREDIT_CONFIG.REGISTRATION_BONUS,
                   metadata: JSON.stringify({
                     source: 'registration_bonus',
                     provider: account?.provider,

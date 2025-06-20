@@ -13,6 +13,7 @@ interface TestimonialsSectionProps {
 
 export default function TestimonialsSection({ locale }: TestimonialsSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
   const t = useTranslations("testimonials")
 
   const testimonials = [
@@ -39,18 +40,36 @@ export default function TestimonialsSection({ locale }: TestimonialsSectionProps
     },
   ]
 
+  const changeTestimonial = (newIndex: number) => {
+    if (isTransitioning || newIndex === currentIndex) return
+    
+    setIsTransitioning(true)
+    setTimeout(() => {
+      setCurrentIndex(newIndex)
+      setTimeout(() => {
+        setIsTransitioning(false)
+      }, 50)
+    }, 150)
+  }
+
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+    const newIndex = (currentIndex + 1) % testimonials.length
+    changeTestimonial(newIndex)
   }
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+    const newIndex = (currentIndex - 1 + testimonials.length) % testimonials.length
+    changeTestimonial(newIndex)
   }
 
   useEffect(() => {
-    const interval = setInterval(nextTestimonial, 5000)
+    const interval = setInterval(() => {
+      if (!isTransitioning) {
+        nextTestimonial()
+      }
+    }, 5000)
     return () => clearInterval(interval)
-  }, [])
+  }, [currentIndex, isTransitioning])
 
   return (
     <section className="py-20">
@@ -63,7 +82,11 @@ export default function TestimonialsSection({ locale }: TestimonialsSectionProps
         <div className="max-w-4xl mx-auto relative">
           <Card className="bg-background/60 backdrop-blur-sm border-0 shadow-lg">
             <CardContent className="p-8 md:p-12">
-              <div className="text-center">
+              <div 
+                className={`text-center transition-all duration-300 ease-in-out ${
+                  isTransitioning ? 'opacity-0 transform translate-y-2' : 'opacity-100 transform translate-y-0'
+                }`}
+              >
                 {/* Stars */}
                 <div className="flex justify-center mb-6">
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
@@ -84,6 +107,7 @@ export default function TestimonialsSection({ locale }: TestimonialsSectionProps
                     width={60}
                     height={60}
                     className="rounded-full object-cover w-[60px] h-[60px] border-2 border-white shadow-lg"
+                    priority={currentIndex === 0}
                   />
                   <div className="text-left">
                     <div className="font-semibold text-lg">{testimonials[currentIndex].name}</div>
@@ -96,7 +120,13 @@ export default function TestimonialsSection({ locale }: TestimonialsSectionProps
 
           {/* Navigation */}
           <div className="flex justify-center items-center mt-8 space-x-4">
-            <Button variant="outline" size="icon" onClick={prevTestimonial} className="rounded-full">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={prevTestimonial} 
+              className="rounded-full transition-all duration-200 hover:scale-105"
+              disabled={isTransitioning}
+            >
               <ChevronLeftIcon className="w-5 h-5" />
             </Button>
 
@@ -105,15 +135,22 @@ export default function TestimonialsSection({ locale }: TestimonialsSectionProps
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
+                  onClick={() => changeTestimonial(index)}
+                  disabled={isTransitioning}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-110 ${
                     index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
                   }`}
                 />
               ))}
             </div>
 
-            <Button variant="outline" size="icon" onClick={nextTestimonial} className="rounded-full">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={nextTestimonial} 
+              className="rounded-full transition-all duration-200 hover:scale-105"
+              disabled={isTransitioning}
+            >
               <ChevronRightIcon className="w-5 h-5" />
             </Button>
           </div>

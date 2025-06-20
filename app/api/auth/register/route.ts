@@ -4,6 +4,7 @@ import { sendEmail, generateVerificationEmailHtml } from '@/lib/email';
 import { isValidEmail, hashPassword } from '@/lib/auth-utils';
 import { db } from '@/lib/db';
 import { users, userActivities } from '@/lib/schema';
+import { CREDIT_CONFIG, USER_CONFIG } from '@/lib/constants';
 
 export async function POST(request: NextRequest) {
   try {
@@ -25,9 +26,9 @@ export async function POST(request: NextRequest) {
     }
 
     // 基本密码长度验证
-    if (password.length < 6) {
+    if (password.length < USER_CONFIG.MIN_PASSWORD_LENGTH) {
       return NextResponse.json(
-        { error: '密码长度至少需要6个字符' },
+        { error: `密码长度至少需要${USER_CONFIG.MIN_PASSWORD_LENGTH}个字符` },
         { status: 400 }
       );
     }
@@ -39,7 +40,7 @@ export async function POST(request: NextRequest) {
       password: hashedPassword,
       username: email.split('@')[0], // 默认用户名为邮箱前缀
       isEmailVerified: false,
-      credits: 20, // 注册赠送20积分
+      credits: CREDIT_CONFIG.REGISTRATION_BONUS, // 使用配置文件中的注册积分
     }).returning();
 
     if (!newUser) {
@@ -55,7 +56,7 @@ export async function POST(request: NextRequest) {
         userId: newUser.id,
         type: 'registration_bonus',
         description: 'credit_description.registration_bonus',
-        creditAmount: 20,
+        creditAmount: CREDIT_CONFIG.REGISTRATION_BONUS,
         metadata: JSON.stringify({
           source: 'registration_bonus',
           email: newUser.email,

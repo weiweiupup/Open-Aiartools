@@ -1,4 +1,5 @@
 import { pgTable, text, timestamp, uuid, boolean, integer } from 'drizzle-orm/pg-core';
+import { CREDIT_CONFIG } from '@/lib/constants';
 
 export const users = pgTable('users', {
   id: uuid('id').primaryKey().defaultRandom(),
@@ -8,7 +9,7 @@ export const users = pgTable('users', {
   emailVerified: timestamp('email_verified'),
   image: text('image'),
   isEmailVerified: boolean('is_email_verified').notNull().default(false),
-  credits: integer('credits').notNull().default(20), // 永久积分
+  credits: integer('credits').notNull().default(CREDIT_CONFIG.REGISTRATION_BONUS), // 永久积分
   subscriptionCredits: integer('subscription_credits').notNull().default(0), // 订阅积分
   // 订阅相关字段
   subscriptionStatus: text('subscription_status').default('none'), // 'none', 'active', 'canceled', 'expired'

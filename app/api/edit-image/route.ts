@@ -5,6 +5,7 @@ import { deductCredits } from '@/lib/credit-service';
 import { db } from '@/lib/db';
 import { users } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
+import { CREDIT_CONFIG } from '@/lib/constants';
 
 // 翻译消息
 const messages = {
@@ -181,11 +182,11 @@ export async function POST(request: NextRequest) {
         break;
     }
 
-    // 只有在图片编辑成功后才扣除积分（10积分）
+    // 只有在图片编辑成功后才扣除积分
     if (result.success) {
       const creditDeductResult = await deductCredits(
         user.id,
-        10,
+        CREDIT_CONFIG.COSTS.IMAGE_EDIT,
         action === 'remove_background' ? 'credit_description.background_removal' : `credit_description.image_edit:${prompt?.substring(0, 100) || 'Image Edit'}`,
         {
           action: action,

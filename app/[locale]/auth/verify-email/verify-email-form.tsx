@@ -120,7 +120,7 @@ export default function VerifyEmailForm({ locale }: VerifyEmailFormProps) {
           <CardFooter className="flex flex-col space-y-3">
             {status === 'success' && (
               <Button onClick={handleGoToLogin} className="w-full">
-                {t('goToDashboard')}
+                {t('backToLogin')}
               </Button>
             )}
             

@@ -12,7 +12,7 @@ interface DashboardPageProps {
 
 export async function generateMetadata({ params }: DashboardPageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'auth.dashboard' });
+  const t = await getTranslations({ locale, namespace: 'dashboard' });
   
   return {
     title: t('pageTitle'),

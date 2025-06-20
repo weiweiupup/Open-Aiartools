@@ -9,7 +9,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { useTranslations } from "next-intl"
 import { useToast } from "@/hooks/use-toast"
 import Image from "next/image"
-import { useSession } from 'next-auth/react'
+import { useSession, signOut } from 'next-auth/react'
+import { useAuth } from "./providers"
 
 interface NavigationProps {
   locale: string
@@ -26,127 +27,32 @@ interface User {
 export default function Navigation({ locale }: NavigationProps) {
   const { theme, setTheme } = useTheme()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [user, setUser] = useState<User | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const { data: session, status } = useSession()
+  const { user, isLoading, refreshUser } = useAuth()
   const router = useRouter()
   const pathname = usePathname()
   const t = useTranslations("navigation")
-  const tAuth = useTranslations("auth.dashboard")
+  const tAuth = useTranslations("dashboard")
   const tErrors = useTranslations("auth.errors")
   const { toast } = useToast()
 
-  // 检查用户登录状态，结合NextAuth会话状态
-  useEffect(() => {
-    checkAuthStatus()
-  }, [session, status])
-
-  // 监听路由变化，重新检查认证状态
-  useEffect(() => {
-    if (status !== 'loading') {
-      checkAuthStatus()
-    }
-  }, [pathname, status])
-
-  // 监听自定义认证状态更新事件
-  useEffect(() => {
-    const handleAuthUpdate = (event: CustomEvent) => {
-      console.log('Navigation: 收到认证状态更新事件', event.detail);
-      // 当收到认证状态更新事件时，立即重新检查认证状态
-      if (event.detail.status !== 'loading') {
-        // 稍微延迟以确保事件处理完成
-        setTimeout(() => {
-          checkAuthStatus();
-        }, 50);
-      }
-    }
-
-    window.addEventListener('authStatusChanged', handleAuthUpdate as EventListener)
-    return () => {
-      window.removeEventListener('authStatusChanged', handleAuthUpdate as EventListener)
-    }
-  }, [])
-
-  const checkAuthStatus = async () => {
-    // 如果NextAuth还在加载中，等待
-    if (status === 'loading') {
-      return
-    }
-
-    // 在某些不需要认证的页面跳过认证检查
-    const publicPages = ['/auth/login', '/auth/register', '/auth/forgot-password', '/auth/verify-email', '/auth/verify-email-sent']
-    const isPublicPage = publicPages.some(page => pathname.includes(page))
-    
-    if (isPublicPage) {
-      setUser(null)
-      setIsLoading(false)
-      return
-    }
-
-    // 如果NextAuth显示未认证，直接设置为null
-    if (status === 'unauthenticated') {
-      setUser(null)
-      setIsLoading(false)
-      return
-    }
-
-    // 如果有NextAuth会话，获取完整用户信息
-    if (session?.user?.email) {
-      try {
-        const response = await fetch('/api/auth/me', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-          // 添加缓存控制头，确保获取最新数据
-          cache: 'no-cache',
-        })
-        
-        if (response.ok) {
-          const userData = await response.json()
-          console.log('Navigation: 用户信息获取成功', userData.user.email);
-          setUser(userData.user)
-        } else if (response.status === 401) {
-          // 401是正常的未登录状态，静默处理
-          setUser(null)
-        } else {
-          // 其他错误状态码才记录到控制台
-          console.error('Navigation: 认证检查异常', response.status, response.statusText)
-          setUser(null)
-        }
-      } catch (error) {
-        console.error('Navigation: 登录状态检查失败', error)
-        setUser(null)
-      }
-    } else {
-      setUser(null)
-    }
-    
-    setIsLoading(false)
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
   }
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('/api/auth/logout', {
-        method: 'POST',
+      await signOut({ redirect: false })
+      await refreshUser() // 刷新认证状态
+      router.push(`/${locale}`)
+      toast({
+        title: t("logoutSuccess"),
+        description: t("logoutSuccessDesc"),
       })
-      
-      if (response.ok) {
-        setUser(null)
-        toast({
-          title: tAuth('logoutSuccess'),
-          description: tAuth('logoutSuccess'),
-        })
-        router.push(`/${locale}`)
-      } else {
-        throw new Error('退出登录失败')
-      }
     } catch (error) {
       toast({
-        title: t('logout'),
-        description: tErrors('networkError'),
-        variant: 'destructive',
+        title: t("logoutFailed"),
+        description: t("logoutFailedDesc"),
+        variant: "destructive",
       })
     }
   }

@@ -9,6 +9,23 @@ export async function POST(request: NextRequest) {
   try {
     console.log('Creating checkout session...');
 
+    // 验证 Stripe 对象
+    if (!stripe) {
+      console.error('Stripe object is undefined');
+      return NextResponse.json(
+        { error: 'Stripe 初始化失败' },
+        { status: 500 }
+      );
+    }
+
+    if (!stripe.checkout) {
+      console.error('Stripe checkout is undefined');
+      return NextResponse.json(
+        { error: 'Stripe checkout 服务不可用' },
+        { status: 500 }
+      );
+    }
+
     // 检查环境变量
     if (!process.env.STRIPE_SECRET_KEY) {
       console.error('STRIPE_SECRET_KEY is not configured');
@@ -25,6 +42,8 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    console.log('Stripe object validated successfully');
 
     // 检查用户认证
     const session = await auth();

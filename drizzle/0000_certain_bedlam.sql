@@ -39,7 +39,7 @@ CREATE TABLE "users" (
 	"email_verified" timestamp,
 	"image" text,
 	"is_email_verified" boolean DEFAULT false NOT NULL,
-	"credits" integer DEFAULT 20 NOT NULL,
+	"credits" integer DEFAULT 10 NOT NULL,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now(),
 	CONSTRAINT "users_email_unique" UNIQUE("email")

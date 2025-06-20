@@ -9,6 +9,8 @@ import { useTranslations } from "next-intl"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { toast } from "@/hooks/use-toast"
+import { useAuth } from "./providers"
+import { useToast } from "@/components/ui/use-toast"
 
 interface PricingSectionProps {
   locale: string
@@ -34,6 +36,9 @@ export default function PricingSection({ locale }: PricingSectionProps) {
   const [isSubscribing, setIsSubscribing] = useState(false)
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
   const [isLoadingUser, setIsLoadingUser] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const { user, isLoading: isLoadingAuth, refreshUser } = useAuth()
+  const { toast } = useToast()
 
   // 获取用户信息包括订阅状态
   useEffect(() => {
@@ -137,118 +142,73 @@ export default function PricingSection({ locale }: PricingSectionProps) {
     }
   }
 
-  const handleSubscribe = async () => {
-    // 检查会话状态是否还在加载中
-    if (status === 'loading') {
+  const handleSubscribe = async (priceId: string) => {
+    if (isLoadingAuth) {
       toast({
-        title: "请稍等",
-        description: "正在检查登录状态...",
-        variant: "default",
-      });
-      return;
+        title: t('checkingAuth'),
+        description: t('pleaseWait'),
+        variant: 'default',
+      })
+      return
     }
 
-    // 多重认证状态检查
-    if (!session && status === 'unauthenticated') {
+    if (!user) {
       toast({
-        title: t("loginRequired"),
-        description: t("loginRequiredDesc"),
-        variant: "destructive",
-      });
-      router.push(`/${locale}/auth/login`);
-      return;
+        title: t('loginRequired'),
+        description: t('loginRequiredDesc'),
+        variant: 'destructive',
+      })
+      router.push(`/${locale}/auth/login`)
+      return
     }
 
-    // 强制刷新用户信息以确保状态最新
-    const currentUserInfo = await forceRefreshUserInfo();
-    if (!currentUserInfo) {
-      toast({
-        title: t("loginRequired"),
-        description: t("loginRequiredDesc"),
-        variant: "destructive",
-      });
-      router.push(`/${locale}/auth/login`);
-      return;
-    }
+    setIsLoading(true)
 
-    setIsSubscribing(true);
     try {
-      console.log('Starting subscription process...');
-      
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // 确保包含认证cookies
         body: JSON.stringify({
+          priceId,
           locale,
         }),
-      });
+      })
 
-      console.log('Response status:', response.status);
-      console.log('Response headers:', response.headers);
+      const data = await response.json()
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Response error text:', errorText);
-        
-        // 特殊处理401未授权错误
-        if (response.status === 401) {
-          toast({
-            title: t("loginRequired"),
-            description: t("loginRequiredDesc"),
-            variant: "destructive",
-          });
-          router.push(`/${locale}/auth/login`);
-          return;
-        }
-        
-        // 尝试解析为 JSON
-        let errorData;
-        try {
-          errorData = JSON.parse(errorText);
-        } catch (parseError) {
-          console.error('Failed to parse error response as JSON:', parseError);
-          throw new Error(t('invalidResponse'));
-        }
-        
-        const errorMessage = errorData.error === 'alreadySubscribed' 
-          ? t('alreadySubscribed')
-          : errorData.error || t('createSessionFailed');
-        throw new Error(errorMessage);
-      }
-
-      const data = await response.json();
-      console.log('Checkout session data:', data);
-
-      // 跳转到 Stripe Checkout 页面
       if (data.url) {
-        console.log('Redirecting to:', data.url);
-        window.location.href = data.url;
+        window.location.href = data.url
       } else {
-        throw new Error(t('noPaymentUrl'));
+        const errorMessage = data.error === 'alreadySubscribed' 
+          ? t('alreadySubscribed')
+          : data.error || t('createSessionFailed');
+        
+        toast({
+          title: t('subscriptionFailed'),
+          description: errorMessage,
+          variant: 'destructive',
+        });
+
+        console.log('Checkout session data:', data);
+        
+        // 如果已经订阅，刷新用户信息
+        if (data.error === 'alreadySubscribed') {
+          await refreshUser();
+        }
       }
-    } catch (error: any) {
-      console.error('Error creating checkout session:', error);
-      
-      let errorMessage = t('subscriptionError');
-      
-      if (error.message) {
-        errorMessage = error.message;
-      } else if (error.name === 'TypeError' && error.message.includes('fetch')) {
-        errorMessage = t('networkError');
-      }
-      
+    } catch (error) {
+      console.error('创建订阅会话失败:', error)
       toast({
-        title: t("subscriptionFailed"),
-        description: errorMessage,
+        title: t('subscriptionFailed'),
+        description: t('networkError'),
         variant: 'destructive',
-      });
+      })
     } finally {
-      setIsSubscribing(false);
+      setIsLoading(false)
     }
-  };
+  }
 
   const handleFreeSignUp = () => {
     // 跳转到demo页面
@@ -299,7 +259,7 @@ export default function PricingSection({ locale }: PricingSectionProps) {
         handleFreeSignUp();
         break;
       case "pro":
-        handleSubscribe();
+        handleSubscribe(planType);
         break;
       case "enterprise":
         handleContactSales();

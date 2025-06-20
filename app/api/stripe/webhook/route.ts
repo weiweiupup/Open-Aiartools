@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe';
-import { addCredits, clearSubscriptionCredits } from '@/lib/credit-service';
+import { headers } from 'next/headers';
 import { db } from '@/lib/db';
 import { users, userActivities } from '@/lib/schema';
+import { addCredits } from '@/lib/credit-service';
 import { eq, and, like } from 'drizzle-orm';
+import { stripe } from '@/lib/stripe';
+import { CREDIT_CONFIG } from '@/lib/constants';
 import Stripe from 'stripe';
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
@@ -133,10 +135,10 @@ export async function POST(request: NextRequest) {
               });
 
               if (user) {
-                // 为订阅用户每月添加800订阅积分
+                // 为订阅用户每月添加订阅积分
                 await addCredits(
                   user.id,
-                  800,
+                  CREDIT_CONFIG.SUBSCRIPTION.PRO_MONTHLY_CREDITS,
                   'credit_description.subscription_renewal',
                   {
                     type: 'subscription_renewal',
@@ -147,7 +149,7 @@ export async function POST(request: NextRequest) {
                   'subscription'
                 );
 
-                console.log(`Successfully added 800 subscription credits to user ${user.id} for subscription renewal`);
+                console.log(`Successfully added ${CREDIT_CONFIG.SUBSCRIPTION.PRO_MONTHLY_CREDITS} subscription credits to user ${user.id} for subscription renewal`);
               }
             }
           } catch (error) {
@@ -174,7 +176,13 @@ export async function POST(request: NextRequest) {
 
             if (user) {
               // 清零订阅积分
-              await clearSubscriptionCredits(user.id, 'credit_description.subscription_expired');
+              await addCredits(user.id, 0, 'credit_description.subscription_expired', {
+                type: 'subscription_expired',
+                amount: 0,
+                currency: 'usd',
+                source: 'stripe-webhook',
+                timestamp: new Date().toISOString()
+              }, 'subscription');
               
               // 更新订阅状态为取消
               await db.update(users)
@@ -212,7 +220,13 @@ export async function POST(request: NextRequest) {
 
               if (user) {
                 // 清零订阅积分
-                await clearSubscriptionCredits(user.id, 'credit_description.subscription_expired');
+                await addCredits(user.id, 0, 'credit_description.subscription_expired', {
+                  type: 'subscription_expired',
+                  amount: 0,
+                  currency: 'usd',
+                  source: 'stripe-webhook',
+                  timestamp: new Date().toISOString()
+                }, 'subscription');
                 
                 // 更新订阅状态为过期
                 await db.update(users)

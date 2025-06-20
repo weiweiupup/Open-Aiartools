@@ -15,6 +15,13 @@
       "when": 1749263424858,
       "tag": "0001_nebulous_vargas",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1749906123850,
+      "tag": "0002_little_sleeper",
+      "breakpoints": true
     }
   ]
 }

@@ -15,7 +15,7 @@ export default function SEO({
   title: customTitle,
   description: customDescription,
   keywords: customKeywords,
-  image = '/images/og-image.jpg',
+  image = '/images/og-image.png',
   url = 'https://aiartools.com',
   type = 'website',
   locale = 'en'

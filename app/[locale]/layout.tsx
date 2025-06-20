@@ -60,7 +60,7 @@ export async function generateMetadata({
       siteName: 'Aiartools',
       images: [
         {
-          url: '/images/og-image.jpg',
+          url: '/images/og-image.png',
           width: 1200,
           height: 630,
           alt: t('ogTitle'),
@@ -71,7 +71,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: t('twitterTitle'),
       description: t('twitterDescription'),
-      images: ['/images/og-image.jpg'],
+      images: ['/images/og-image.png'],
       creator: '@aiartools',
       site: '@aiartools',
     },

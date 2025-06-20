@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslations } from "next-intl";
 import { User, Mail, Calendar, LogOut, Edit, Save, X, Coins, ImageIcon, Plus, Minus, Crown } from 'lucide-react';
+import { useAuth } from "@/components/providers"
 
 interface UserInfo {
   id: string;
@@ -37,96 +38,58 @@ interface DashboardContentProps {
 }
 
 export default function DashboardContent({ locale }: DashboardContentProps) {
-  const [user, setUser] = useState<UserInfo | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editUsername, setEditUsername] = useState('');
-  const [isSaving, setIsSaving] = useState(false);
-  const [activities, setActivities] = useState<CreditActivity[]>([]);
-  const [isLoadingActivities, setIsLoadingActivities] = useState(true);
-  const [isSubscribing, setIsSubscribing] = useState(false);
-  const router = useRouter();
-  const { toast } = useToast();
-  const t = useTranslations("auth.dashboard");
-  const tErrors = useTranslations("auth.errors");
-  const tCredit = useTranslations('credit_description');
+  const { user, isLoading, refreshUser } = useAuth()
+  const router = useRouter()
+  const t = useTranslations("dashboard")
+  const { toast } = useToast()
+  const tErrors = useTranslations("auth.errors")
+  const tCredit = useTranslations('credit_description')
+  const [isEditing, setIsEditing] = useState(false)
+  const [editUsername, setEditUsername] = useState('')
+  const [isSaving, setIsSaving] = useState(false)
+  const [activities, setActivities] = useState<CreditActivity[]>([])
+  const [isLoadingActivities, setIsLoadingActivities] = useState(true)
+  const [isSubscribing, setIsSubscribing] = useState(false)
 
   useEffect(() => {
-    const checkAuth = async () => {
+    const fetchActivities = async () => {
       try {
-        const response = await fetch('/api/auth/me', {
+        const response = await fetch('/api/user/activities?limit=10', {
           method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include', // 确保包含cookies
-        });
+          credentials: 'include',
+        })
         
         if (response.ok) {
-          const userData = await response.json();
-          setUser(userData.user);
-          setEditUsername(userData.user.username || '');
-          // 获取用户数据成功后获取活动记录
-          fetchActivities();
-        } else if (response.status === 401) {
-          // 401 是正常的未登录状态，静默重定向
-          router.push(`/${locale}/auth/login`);
+          const data = await response.json()
+          setActivities(data.activities || [])
         } else {
-          // 其他错误状态码才记录
-          console.error('获取用户信息失败:', response.status, response.statusText);
-          router.push(`/${locale}/auth/login`);
+          console.error('获取活动记录失败:', response.status)
         }
       } catch (error) {
-        // 只有真正的网络错误才记录
-        if (error instanceof TypeError && error.message.includes('fetch')) {
-          console.error('网络连接错误:', error.message);
-        } else {
-          console.error('未知错误:', error);
-        }
-        router.push(`/${locale}/auth/login`);
+        console.error('获取活动记录出错:', error)
       } finally {
-        setIsLoading(false);
+        setIsLoadingActivities(false)
       }
-    };
-
-    checkAuth();
-  }, [router, locale]);
-
-  const fetchActivities = async () => {
-    try {
-      const response = await fetch('/api/user/activities?limit=10', {
-        method: 'GET',
-        credentials: 'include',
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        setActivities(data.activities || []);
-      } else {
-        console.error('获取活动记录失败:', response.status);
-      }
-    } catch (error) {
-      console.error('获取活动记录出错:', error);
-    } finally {
-      setIsLoadingActivities(false);
     }
-  };
+
+    fetchActivities()
+  }, [])
 
   // 格式化时间
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffTime = Math.abs(now.getTime() - date.getTime());
-    const diffMinutes = Math.ceil(diffTime / (1000 * 60));
-    const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const date = new Date(dateString)
+    const now = new Date()
+    const diffTime = Math.abs(now.getTime() - date.getTime())
+    const diffMinutes = Math.ceil(diffTime / (1000 * 60))
+    const diffHours = Math.ceil(diffTime / (1000 * 60 * 60))
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 
     if (diffMinutes < 60) {
-      return `${diffMinutes} ${locale === 'zh' ? '分钟前' : 'minutes ago'}`;
+      return `${diffMinutes} ${locale === 'zh' ? '分钟前' : 'minutes ago'}`
     } else if (diffHours < 24) {
-      return `${diffHours} ${locale === 'zh' ? '小时前' : 'hours ago'}`;
+      return `${diffHours} ${locale === 'zh' ? '小时前' : 'hours ago'}`
     } else if (diffDays < 7) {
-      return `${diffDays} ${locale === 'zh' ? '天前' : 'days ago'}`;
+      return `${diffDays} ${locale === 'zh' ? '天前' : 'days ago'}`
     } else {
       return date.toLocaleDateString(locale === 'zh' ? 'zh-CN' : 'en-US', {
         year: 'numeric',
@@ -134,97 +97,121 @@ export default function DashboardContent({ locale }: DashboardContentProps) {
         day: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
-      });
+      })
     }
-  };
+  }
 
   // 获取活动图标
   const getActivityIcon = (type: string) => {
     switch (type) {
       case 'credit_deduct':
-        return <Minus className="h-4 w-4 text-red-500" />;
+        return <Minus className="h-4 w-4 text-red-500" />
       case 'credit_add':
-        return <Plus className="h-4 w-4 text-green-500" />;
+        return <Plus className="h-4 w-4 text-green-500" />
       case 'registration_bonus':
-        return <Plus className="h-4 w-4 text-green-500" />;
+        return <Plus className="h-4 w-4 text-green-500" />
       case 'image_generation':
-        return <ImageIcon className="h-4 w-4 text-blue-500" />;
+      case 'image_edit':
+      case 'multi_image_edit':
+        return <ImageIcon className="h-4 w-4 text-blue-500" />
       case 'login':
-        return <User className="h-4 w-4 text-gray-500" />;
+        return <User className="h-4 w-4 text-gray-500" />
       default:
-        return <Coins className="h-4 w-4 text-gray-400" />;
+        return <Coins className="h-4 w-4 text-gray-400" />
     }
-  };
+  }
 
   // 获取活动类型描述
   const getActivityTypeText = (type: string) => {
     switch (type) {
       case 'credit_deduct':
-        return t('activityTypes.credit_deduct');
+        return t('activityTypes.credit_deduct')
       case 'credit_add':
-        return t('activityTypes.credit_add');
+        return t('activityTypes.credit_add')
       case 'image_generation':
-        return t('activityTypes.image_generation');
+      case 'image_edit':
+      case 'multi_image_edit':
+        return t('activityTypes.image_generation')
       case 'login':
-        return t('activityTypes.login');
+        return t('activityTypes.login')
       case 'registration_bonus':
-        return t('activityTypes.registration_bonus');
+        return t('activityTypes.registration_bonus')
       default:
-        return t('activityTypes.other');
+        return t('activityTypes.other')
     }
-  };
+  }
 
   // 格式化活动描述
   const formatActivityDescription = (activity: CreditActivity) => {
-    const { description } = activity;
+    const { description } = activity
     
     // 如果是翻译键格式
     if (description.startsWith('credit_description.')) {
-      const key = description.replace('credit_description.', '');
+      const key = description.replace('credit_description.', '')
       
       // 处理特殊的图片编辑格式: credit_description.image_edit:具体内容
       if (key.startsWith('image_edit:')) {
-        const content = key.replace('image_edit:', '');
-        return `${tCredit('image_edit')}: ${content}`;
+        const content = key.replace('image_edit:', '')
+        return `${tCredit('image_edit')}: ${content}`
+      }
+      
+      // 处理多图编辑格式: credit_description.multi_image_edit:具体内容
+      if (key.startsWith('multi_image_edit:')) {
+        const content = key.replace('multi_image_edit:', '')
+        return `${tCredit('image_edit')}: ${content}`
+      }
+      
+      // 处理多图编辑的默认格式，显示为"图片编辑"而不是"多图编辑"
+      if (key === 'multi_image_edit') {
+        // 尝试从metadata中获取prompt信息
+        try {
+          const metadata = activity.metadata ? JSON.parse(activity.metadata) : null
+          if (metadata && metadata.prompt) {
+            return `${tCredit('image_edit')}: ${metadata.prompt}`
+          }
+        } catch (e) {
+          // 忽略JSON解析错误
+        }
+        return tCredit('image_edit')
       }
       
       // 直接翻译键
       try {
         if (key === 'registration_bonus') {
-          return tCredit('registration_bonus');
+          return tCredit('registration_bonus')
         } else if (key === 'background_removal') {
-          return tCredit('background_removal');
+          return tCredit('background_removal')
         } else if (key === 'image_edit') {
-          return tCredit('image_edit');
+          return tCredit('image_edit')
         } else if (key === 'subscription_activated') {
-          return tCredit('subscription_activated');
+          return tCredit('subscription_activated')
         } else if (key === 'purchase_credits') {
-          return tCredit('purchase_credits');
+          return tCredit('purchase_credits')
         } else if (key === 'subscription_expired') {
-          return tCredit('subscription_expired');
+          return tCredit('subscription_expired')
         }
       } catch (error) {
-        console.log('Translation not found for key:', key);
+        console.log('Translation not found for key:', key)
       }
     }
     
     // 兼容旧格式，直接返回描述
-    return description;
-  };
+    return description
+  }
 
   const handleEditProfile = () => {
-    setIsEditing(true);
-  };
+    setIsEditing(true)
+  }
 
   const handleCancelEdit = () => {
-    setIsEditing(false);
-    setEditUsername(user?.username || '');
-  };
+    setIsEditing(false)
+    setEditUsername(user?.username || '')
+  }
 
   const handleSaveProfile = async () => {
-    if (!user) return;
+    if (!user) return
 
-    setIsSaving(true);
+    setIsSaving(true)
     try {
       const response = await fetch('/api/auth/update-profile', {
         method: 'PUT',
@@ -234,68 +221,83 @@ export default function DashboardContent({ locale }: DashboardContentProps) {
         body: JSON.stringify({
           username: editUsername.trim() || null,
         }),
-      });
+      })
 
       if (response.ok) {
-        const updatedData = await response.json();
-        setUser(updatedData.user);
-        setIsEditing(false);
+        const updatedData = await response.json()
+        refreshUser()
+        setIsEditing(false)
         // 重新获取活动记录
-        fetchActivities();
+        const fetchActivitiesAgain = async () => {
+          try {
+            const response = await fetch('/api/user/activities?limit=10', {
+              method: 'GET',
+              credentials: 'include',
+            })
+            
+            if (response.ok) {
+              const data = await response.json()
+              setActivities(data.activities || [])
+            }
+          } catch (error) {
+            console.error('获取活动记录出错:', error)
+          }
+        }
+        fetchActivitiesAgain()
         toast({
           title: t('profileUpdated'),
           description: t('profileUpdatedDesc'),
-        });
+        })
       } else {
-        const errorData = await response.json();
+        const errorData = await response.json()
         toast({
           title: t('updateFailed'),
           description: errorData.error || t('updateError'),
           variant: 'destructive',
-        });
+        })
       }
     } catch (error) {
       toast({
         title: t('updateFailed'),
         description: t('networkError'),
         variant: 'destructive',
-      });
+      })
     } finally {
-      setIsSaving(false);
+      setIsSaving(false)
     }
-  };
+  }
 
   const handleLogout = async () => {
     try {
       const response = await fetch('/api/auth/logout', {
         method: 'POST',
-      });
+      })
 
       if (response.ok) {
         toast({
           title: t('logoutSuccess'),
           description: t('logoutSuccess'),
-        });
-        router.push(`/${locale}`);
-        router.refresh();
+        })
+        router.push(`/${locale}`)
+        router.refresh()
       } else {
         toast({
           title: t('logoutFailed'),
           description: t('logoutError'),
           variant: 'destructive',
-        });
+        })
       }
     } catch (error) {
       toast({
         title: t('logoutFailed'),
         description: tErrors('networkError'),
         variant: 'destructive',
-      });
+      })
     }
-  };
+  }
 
   const handleSubscribe = async () => {
-    setIsSubscribing(true);
+    setIsSubscribing(true)
     try {
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
@@ -305,47 +307,50 @@ export default function DashboardContent({ locale }: DashboardContentProps) {
         body: JSON.stringify({
           locale,
         }),
-      });
+      })
 
-      const data = await response.json();
+      const data = await response.json()
 
       if (!response.ok) {
         // 处理翻译键错误消息
         const errorMessage = data.error === 'alreadySubscribed' 
           ? '您已有活跃订阅，无需重复订阅'
-          : data.error || '创建支付会话失败';
-        throw new Error(errorMessage);
+          : data.error || '创建支付会话失败'
+        throw new Error(errorMessage)
       }
 
       // 跳转到 Stripe Checkout 页面
       if (data.url) {
-        window.location.href = data.url;
+        window.location.href = data.url
       }
     } catch (error: any) {
-      console.error('Error creating checkout session:', error);
+      console.error('Error creating checkout session:', error)
       toast({
         title: '订阅失败',
         description: error.message || '创建支付会话时发生错误',
         variant: 'destructive',
-      });
+      })
     } finally {
-      setIsSubscribing(false);
+      setIsSubscribing(false)
     }
-  };
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
-          <p className="mt-4 text-gray-600">{t('loading')}</p>
-        </div>
-      </div>
-    );
   }
 
+  // 如果正在加载，显示加载状态
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-400">{t("loading")}</p>
+        </div>
+      </div>
+    )
+  }
+
+  // 如果未登录，重定向到登录页
   if (!user) {
-    return null;
+    router.push(`/${locale}/auth/login`)
+    return null
   }
 
   return (
@@ -618,5 +623,5 @@ export default function DashboardContent({ locale }: DashboardContentProps) {
         </Card>
       </div>
     </div>
-  );
+  )
 } 
