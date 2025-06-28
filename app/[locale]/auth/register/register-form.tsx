@@ -59,7 +59,7 @@ export default function RegisterForm({ locale }: RegisterFormProps) {
           title: t('registerSuccess'),
           description: t('verificationEmailSent'),
         });
-        router.push(`/${locale}/auth/verify-email-sent`);
+        router.push(`/${locale}/auth/verify-email-sent?email=${encodeURIComponent(email)}`);
       } else {
         setError(data.error || tErrors('networkError'));
       }

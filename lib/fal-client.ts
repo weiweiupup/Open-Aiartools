@@ -55,7 +55,7 @@ fal.config({
   credentials: process.env.FAL_KEY,
 });
 
-// 智能图像编辑 - 使用 Kontext Pro 模型
+// 智能图像编辑 - 使用 Kontext Dev 模型
 export async function smartImageEdit(imageUrl: string, prompt: string, options?: {
   guidance_scale?: number;
   num_images?: number;
@@ -67,9 +67,9 @@ export async function smartImageEdit(imageUrl: string, prompt: string, options?:
   locale?: string;
 }) {
   try {
-    console.log('Calling Kontext Pro model for smart editing...');
+    console.log('Calling Kontext Dev model for smart editing...');
     
-    const result = await fal.subscribe("fal-ai/flux-pro/kontext", {
+    const result = await fal.subscribe("fal-ai/flux-kontext/dev", {
       input: {
         prompt: prompt,
         image_url: imageUrl,
@@ -134,7 +134,7 @@ export async function smartImageEdit(imageUrl: string, prompt: string, options?:
       success: true,
       data: {
         images: images,
-        model_used: 'flux-pro-kontext',
+        model_used: 'flux-kontext-dev',
         prompt_used: prompt,
         parameters: {
           guidance_scale: options?.guidance_scale ?? 3.5,
@@ -163,9 +163,9 @@ export async function preciseImageEdit(imageUrl: string, prompt: string, options
   locale?: string;
 }) {
   try {
-    console.log('Calling Kontext Pro model for precise editing...');
+    console.log('Calling Kontext Dev model for precise editing...');
     
-    const result = await fal.subscribe("fal-ai/flux-pro/kontext", {
+    const result = await fal.subscribe("fal-ai/flux-kontext/dev", {
       input: {
         prompt: prompt,
         image_url: imageUrl,
@@ -202,7 +202,7 @@ export async function preciseImageEdit(imageUrl: string, prompt: string, options
       success: true,
       data: {
         images: images,
-        model_used: 'flux-pro-kontext-precise',
+        model_used: 'flux-kontext-dev-precise',
         prompt_used: prompt,
         parameters: {
           guidance_scale: options?.guidance_scale ?? 4.5,
@@ -231,9 +231,9 @@ export async function creativeImageEdit(imageUrl: string, prompt: string, option
   locale?: string;
 }) {
   try {
-    console.log('Calling Kontext Pro model for creative editing...');
+    console.log('Calling Kontext Dev model for creative editing...');
     
-    const result = await fal.subscribe("fal-ai/flux-pro/kontext", {
+    const result = await fal.subscribe("fal-ai/flux-kontext/dev", {
       input: {
         prompt: prompt,
         image_url: imageUrl,
@@ -270,7 +270,7 @@ export async function creativeImageEdit(imageUrl: string, prompt: string, option
       success: true,
       data: {
         images: images,
-        model_used: 'flux-pro-kontext-creative',
+        model_used: 'flux-kontext-dev-creative',
         prompt_used: prompt,
         parameters: {
           guidance_scale: options?.guidance_scale ?? 2.5,
@@ -293,7 +293,7 @@ export async function editImage(imageUrl: string, prompt: string, locale?: strin
   return await smartImageEdit(imageUrl, prompt, { locale });
 }
 
-// 背景移除功能（使用Kontext Pro实现）
+// 背景移除功能（使用Kontext Dev实现）
 export async function removeBackground(imageUrl: string, options?: {
   aspect_ratio?: AspectRatio;
   output_format?: "jpeg" | "png";
@@ -302,9 +302,9 @@ export async function removeBackground(imageUrl: string, options?: {
   locale?: string;
 }) {
   try {
-    console.log('Calling Kontext Pro model for background removal...');
+    console.log('Calling Kontext Dev model for background removal...');
     
-    const result = await fal.subscribe("fal-ai/flux-pro/kontext", {
+    const result = await fal.subscribe("fal-ai/flux-kontext/dev", {
       input: {
         prompt: "remove background, transparent background, clean cutout",
         image_url: imageUrl,
@@ -341,7 +341,7 @@ export async function removeBackground(imageUrl: string, options?: {
       success: true,
       data: {
         images: images,
-        model_used: 'flux-pro-kontext-background-removal',
+        model_used: 'flux-kontext-dev-background-removal',
         parameters: {
           aspect_ratio: options?.aspect_ratio,
           output_format: options?.output_format ?? "png",

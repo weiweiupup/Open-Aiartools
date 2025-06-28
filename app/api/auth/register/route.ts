@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createUser, createVerificationToken } from '@/lib/user-service';
+import { createUser, createVerificationToken, findUserByEmail } from '@/lib/user-service';
 import { sendEmail, generateVerificationEmailHtml } from '@/lib/email';
 import { isValidEmail, hashPassword } from '@/lib/auth-utils';
 import { db } from '@/lib/db';
@@ -13,14 +13,14 @@ export async function POST(request: NextRequest) {
     // 验证输入
     if (!email || !password) {
       return NextResponse.json(
-        { error: '邮箱和密码是必填项' },
+        { error: locale === 'zh' ? '邮箱和密码是必填项' : 'Email and password are required' },
         { status: 400 }
       );
     }
 
     if (!isValidEmail(email)) {
       return NextResponse.json(
-        { error: '邮箱格式不正确' },
+        { error: locale === 'zh' ? '邮箱格式不正确' : 'Invalid email format' },
         { status: 400 }
       );
     }
@@ -28,7 +28,16 @@ export async function POST(request: NextRequest) {
     // 基本密码长度验证
     if (password.length < USER_CONFIG.MIN_PASSWORD_LENGTH) {
       return NextResponse.json(
-        { error: `密码长度至少需要${USER_CONFIG.MIN_PASSWORD_LENGTH}个字符` },
+        { error: locale === 'zh' ? `密码长度至少需要${USER_CONFIG.MIN_PASSWORD_LENGTH}个字符` : `Password must be at least ${USER_CONFIG.MIN_PASSWORD_LENGTH} characters long` },
+        { status: 400 }
+      );
+    }
+
+    // 检查邮箱是否已存在
+    const existingUser = await findUserByEmail(email.toLowerCase().trim());
+    if (existingUser) {
+      return NextResponse.json(
+        { error: locale === 'zh' ? '该邮箱已被注册，请使用其他邮箱或直接登录' : 'This email is already registered. Please use a different email or sign in.' },
         { status: 400 }
       );
     }
@@ -45,8 +54,8 @@ export async function POST(request: NextRequest) {
 
     if (!newUser) {
       return NextResponse.json(
-        { error: '用户创建失败，邮箱可能已被注册' },
-        { status: 400 }
+        { error: locale === 'zh' ? '用户创建失败，请稍后重试' : 'User creation failed, please try again later' },
+        { status: 500 }
       );
     }
 
@@ -126,8 +135,29 @@ export async function POST(request: NextRequest) {
     return response;
   } catch (error) {
     console.error('注册错误:', error);
+    
+    // 尝试从请求中获取locale，如果失败则使用默认值
+    let errorLocale = 'zh';
+    try {
+      const body = await request.json();
+      errorLocale = body.locale || 'zh';
+    } catch {
+      // 解析失败时使用默认语言
+      errorLocale = 'zh';
+    }
+    
+    // 检查是否是数据库唯一约束错误
+    if (error instanceof Error) {
+      if (error.message.includes('duplicate key') || error.message.includes('unique constraint')) {
+        return NextResponse.json(
+          { error: errorLocale === 'zh' ? '该邮箱已被注册，请使用其他邮箱' : 'This email is already registered. Please use a different email.' },
+          { status: 400 }
+        );
+      }
+    }
+    
     return NextResponse.json(
-      { error: '服务器内部错误' },
+      { error: errorLocale === 'zh' ? '服务器内部错误，请稍后重试' : 'Internal server error, please try again later' },
       { status: 500 }
     );
   }

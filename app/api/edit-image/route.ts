@@ -244,6 +244,13 @@ export async function GET() {
     version: '1.0.0',
     supported_actions: ['smart', 'precise', 'creative', 'remove_background'],
     supported_formats: ['JPG', 'JPEG', 'PNG', 'WebP', 'AVIF'],
-    max_file_size: '5MB'
+    max_file_size: '5MB',
+    models: {
+      smart: 'flux-kontext-dev',
+      precise: 'flux-kontext-dev',
+      creative: 'flux-kontext-dev',
+      remove_background: 'flux-kontext-dev'
+    },
+    credit_cost: `${CREDIT_CONFIG.COSTS.IMAGE_EDIT} credits per edit`
   });
 } 

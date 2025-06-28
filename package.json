@@ -1,6 +1,6 @@
 {
-  "name": "open-aiartools-2.0",
-  "version": "2.0.0",
+  "name": "open-aiartools",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
