@@ -34,7 +34,7 @@ export default function Footer({ locale }: FooterProps) {
             </div>
             <p className="text-muted-foreground">{t("description")}</p>
             <div className="flex space-x-4">
-              <a href="https://x.com/zyailive" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/wangwei577" target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="icon">
                   <TwitterIcon className="w-5 h-5" />
                 </Button>
