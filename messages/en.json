@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "Aiartools - Transform Your Images with AI Power",
+    "title": "Magic-tools - Transform Your Images with AI Power",
     "description": "Transform your images with the power of AI. Simple, fast, and incredibly powerful. Support smart editing, style conversion, background removal and more AI image processing features.",
     "keywords": "AI image editing,artificial intelligence,image processing,AI photo editing,smart editing,style transfer,background removal,image enhancement",
-    "ogTitle": "Aiartools - Leading AI Image Editing Platform",
+    "ogTitle": "Magic-tools - Leading AI Image Editing Platform",
     "ogDescription": "Experience the most advanced AI image editing technology. Transform complex image variations with simple text descriptions. Support multiple styles, smart editing, background processing and more.",
-    "twitterTitle": "Aiartools - AI Image Editing Tool",
+    "twitterTitle": "Magic-tools - AI Image Editing Tool",
     "twitterDescription": "🎨 Transform your image world with AI! Simple descriptions, intelligent transformations, experience unprecedented image editing."
   },
   "navigation": {
@@ -13,14 +13,13 @@
     "features": "Features",
     "demo": "Demo",
     "pricing": "Pricing",
-    "blog": "Blog",
     "login": "Login",
     "register": "Sign Up",
     "dashboard": "Dashboard",
     "logout": "Logout"
   },
   "dashboard": {
-    "pageTitle": "Dashboard - Aiartools",
+    "pageTitle": "Dashboard - Magic-tools",
     "title": "Dashboard",
     "welcome": "Welcome back",
     "email": "Email",
@@ -95,9 +94,9 @@
   },
   "auth": {
     "register": {
-      "pageTitle": "Sign Up - Aiartools",
+      "pageTitle": "Sign Up - Magic-tools",
       "title": "Create an account",
-      "subtitle": "Get started with Aiartools",
+      "subtitle": "Get started with Magic-tools",
       "email": "Email Address",
       "emailPlaceholder": "Enter your email address",
       "password": "Password",
@@ -116,7 +115,7 @@
       "orContinueWith": "Or continue with"
     },
     "login": {
-      "pageTitle": "Sign In - Aiartools",
+      "pageTitle": "Sign In - Magic-tools",
       "title": "Welcome back",
       "subtitle": "Sign in to your account",
       "email": "Email Address",
@@ -137,7 +136,7 @@
       "orContinueWith": "Or continue with"
     },
     "forgotPassword": {
-      "pageTitle": "Reset Password - Aiartools",
+      "pageTitle": "Reset Password - Magic-tools",
       "title": "Reset Password",
       "subtitle": "Enter your email address and we'll send you a password reset link",
       "email": "Email Address",
@@ -156,7 +155,7 @@
       "termsOfService": "Terms of Service"
     },
     "verifyEmail": {
-      "pageTitle": "Verify Email - Aiartools",
+      "pageTitle": "Verify Email - Magic-tools",
       "title": "Verify Your Email",
       "verifying": "Verifying...",
       "success": "Email verified successfully!",
@@ -175,7 +174,7 @@
       "registerAgain": "Register again"
     },
     "verifyEmailSent": {
-      "pageTitle": "Verification Email Sent - Aiartools",
+      "pageTitle": "Verification Email Sent - Magic-tools",
       "title": "Verification Email Sent",
       "message": "We've sent a verification link to your email. Please check your email and click the link to complete verification.",
       "checkSpam": "If you don't see the email, please check your spam folder.",
@@ -189,7 +188,7 @@
       "backToLogin": "Back to Login",
       "stepsTitle": "Please follow these steps to complete verification:",
       "step1": "Check your email inbox",
-      "step2": "Look for an email from Aiartools",
+      "step2": "Look for an email from Magic-tools",
       "step3": "Click the verification link in the email",
       "step4": "Complete verification to log in",
       "differentEmail": "Register with a different email"
@@ -371,9 +370,9 @@
   },
   "testimonials": {
     "title": "What Our Users Say",
-    "subtitle": "Join thousands of creators who are already transforming their images with Aiartools",
+    "subtitle": "Join thousands of creators who are already transforming their images with Magic-tools",
     "testimonial1": {
-      "content": "Aiartools has revolutionized my workflow. What used to take hours in Photoshop now takes seconds.",
+      "content": "Magic-tools has revolutionized my workflow. What used to take hours in Photoshop now takes seconds.",
       "role": "Digital Artist"
     },
     "testimonial2": {
@@ -387,14 +386,14 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "Everything you need to know about Aiartools",
+    "subtitle": "Everything you need to know about Magic-tools",
     "q1": {
       "question": "Can I try it for free?",
       "answer": "Yes! You'll receive 10 credits upon registration, which is enough for one image edit. You can experience our AI image editing capabilities without any cost."
     },
     "q2": {
       "question": "How does it work?",
-      "answer": "Aiartools uses advanced AI models to understand your text descriptions and apply corresponding transformations to your images. Simply upload an image, describe the change you want, and our AI will generate the result."
+      "answer": "Magic-tools uses advanced AI models to understand your text descriptions and apply corresponding transformations to your images. Simply upload an image, describe the change you want, and our AI will generate the result."
     },
     "q3": {
       "question": "Is my data secure?",
@@ -406,41 +405,11 @@
     },
     "q5": {
       "question": "Can I use the generated images commercially?",
-      "answer": "Yes, all images generated with Aiartools can be used for commercial purposes. You retain full rights to your transformed images."
+      "answer": "Yes, all images generated with Magic-tools can be used for commercial purposes. You retain full rights to your transformed images."
     },
     "q6": {
       "question": "What if I'm not satisfied with the results?",
       "answer": "We are constantly working to improve our AI models. If you are not satisfied with the results, please provide feedback so we can improve."
-    }
-  },
-  "blog": {
-    "title": "Latest from Our Blog",
-    "subtitle": "Stay updated with the latest AI image editing trends and tutorials",
-    "readMore": "Read More",
-    "viewAllPosts": "View All Posts",
-    "allPosts": "All Posts",
-    "posts": {
-      "contact": {
-        "title": "Get in Touch with Aiartools Team",
-        "excerpt": "Learn about the various ways to contact our support team, submit feedback, or report issues. We're here to help you make the most of our AI image transformation tools.",
-        "date": "June 1, 2025",
-        "category": "Contact",
-        "readTime": "3 min read"
-      },
-      "editingGuide": {
-        "title": "Complete Guide: How to Edit Images with Aiartools",
-        "excerpt": "Learn step-by-step how to create stunning image transformations using AI. From uploading images to writing effective prompts, this comprehensive guide covers everything you need to know.",
-        "date": "June 1, 2025",
-        "category": "Tutorial",
-        "readTime": "8 min read"
-      },
-      "introduction": {
-        "title": "Introducing Aiartools: Transform Your Images with the Power of AI",
-        "excerpt": "Today, we're excited to introduce Aiartools, a revolutionary AI-powered image transformation platform that allows you to edit and transform your images using simple text prompts.",
-        "date": "May 31, 2025",
-        "category": "Product",
-        "readTime": "5 min read"
-      }
     }
   },
   "footer": {
@@ -608,7 +577,7 @@
       "pricePerMonth": "$5.99/month",
       "status": "Status",
       "activated": "Activated",
-      "thankYou": "Thank you for choosing Aiartools Pro!",
+      "thankYou": "Thank you for choosing Magic-tools Pro!",
       "autoRenewal": "Your subscription will auto-renew and can be cancelled anytime."
     }
   }

@@ -1,4 +1,4 @@
-# Aiartools - AI 图像编辑工具
+# Magic-tools - AI 图像编辑工具
 
 一个现代化的 AI 图像编辑 Web 应用，基于 Next.js 15 构建，使用 **FLUX.1 Kontext [pro]** 前沿模型提供强大的图像编辑功能。
 
@@ -33,8 +33,8 @@
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/ItusiAI/Open-Aiartools.git
-cd Open-Aiartools
+git clone https://github.com/ItusiAI/Open-Magic-tools.git
+cd Open-Magic-tools
 ```
 
 ### 2. 安装依赖
@@ -148,7 +148,7 @@ pnpm dev
 ## 📁 项目结构
 
 ```
-Open-Aiartools/
+Open-Magic-tools/
 ├── app/                    # Next.js 14 App Router
 │   ├── [locale]/          # 国际化路由
 │   │   ├── auth/          # 认证相关页面
@@ -255,7 +255,7 @@ MIT License - 查看 [LICENSE](LICENSE) 文件了解详情。
 ## 📞 支持
 
 如需帮助，请：
-1. 查看 [Issues](https://github.com/ItusiAI/Open-Aiartools/issues)
+1. 查看 [Issues](https://github.com/ItusiAI/Open-Magic-tools/issues)
 2. 创建新的 Issue
 3. 查看 [fal.ai 文档](https://fal.ai/models/fal-ai/flux-pro/kontext/api)
 4. 联系项目维护者
@@ -282,4 +282,4 @@ MIT License - 查看 [LICENSE](LICENSE) 文件了解详情。
 - **文件大小限制**: 5MB
 ---
 
-使用 ❤️ 和 AI 构建 | [官方网站](https://aiartools.com) | [GitHub](https://github.com/ItusiAI/Open-Aiartools)
+使用 ❤️ 和 AI 构建 | [官方网站](https://aiartools.com) | [GitHub](https://github.com/ItusiAI/Open-Magic-tools)

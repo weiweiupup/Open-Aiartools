@@ -96,12 +96,12 @@ export function generateVerificationEmailHtml(verificationUrl: string, locale: s
     </head>
     <body>
       <div class="header">
-        <h1>Aiartools</h1>
+        <h1>Magic-tools</h1>
         <h2>${isZh ? '邮箱验证' : 'Email Verification'}</h2>
       </div>
       <div class="content">
         <p>${isZh ? '您好！' : 'Hello!'}</p>
-        <p>${isZh ? '感谢您注册Aiartools！请点击下面的按钮验证您的邮箱地址：' : 'Thank you for signing up for Aiartools! Please click the button below to verify your email address:'}</p>
+        <p>${isZh ? '感谢您注册Magic-tools！请点击下面的按钮验证您的邮箱地址：' : 'Thank you for signing up for Magic-tools! Please click the button below to verify your email address:'}</p>
         
         <div style="text-align: center;">
           <a href="${verificationUrl}" class="button">
@@ -119,11 +119,11 @@ export function generateVerificationEmailHtml(verificationUrl: string, locale: s
         </p>
         
         <p>
-          ${isZh ? '如果您没有注册Aiartools账户，请忽略此邮件。' : 'If you did not sign up for Aiartools, please ignore this email.'}
+          ${isZh ? '如果您没有注册Magic-tools账户，请忽略此邮件。' : 'If you did not sign up for Magic-tools, please ignore this email.'}
         </p>
       </div>
       <div class="footer">
-        <p>&copy; 2025 Aiartools. ${isZh ? '保留所有权利。' : 'All rights reserved.'}</p>
+        <p>&copy; 2025 Magic-tools. ${isZh ? '保留所有权利。' : 'All rights reserved.'}</p>
       </div>
     </body>
     </html>
@@ -139,7 +139,7 @@ export function generatePasswordResetEmailHtml(resetUrl: string, locale: string 
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>${isZh ? 'Aiartools - 密码重置' : 'Aiartools - Password Reset'}</title>
+      <title>${isZh ? 'Magic-tools - 密码重置' : 'Magic-tools - Password Reset'}</title>
       <style>
         body {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -215,7 +215,7 @@ export function generatePasswordResetEmailHtml(resetUrl: string, locale: string 
     <body>
       <div class="container">
         <div class="header">
-          <div class="logo">Aiartools</div>
+          <div class="logo">Magic-tools</div>
           <h1 class="title">${isZh ? '密码重置请求' : 'Password Reset Request'}</h1>
         </div>
         
@@ -251,8 +251,8 @@ export function generatePasswordResetEmailHtml(resetUrl: string, locale: string 
         </div>
         
         <div class="footer">
-          <p>${isZh ? '此邮件由 Aiartools 自动发送，请勿回复。' : 'This email was sent automatically by Aiartools. Please do not reply.'}</p>
-          <p>&copy; 2025 Aiartools. ${isZh ? '保留所有权利。' : 'All rights reserved.'}</p>
+          <p>${isZh ? '此邮件由 Magic-tools 自动发送，请勿回复。' : 'This email was sent automatically by Magic-tools. Please do not reply.'}</p>
+          <p>&copy; 2025 Magic-tools. ${isZh ? '保留所有权利。' : 'All rights reserved.'}</p>
         </div>
       </div>
     </body>

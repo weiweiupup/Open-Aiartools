@@ -10,13 +10,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   
   const titles = {
-    en: "Privacy Policy - Aiartools | AI-Powered Image Transformation",
-    zh: "隐私政策 - Aiartools | AI驱动的图像变换工具"
+    en: "Privacy Policy - Magic-tools | AI-Powered Image Transformation",
+    zh: "隐私政策 - Magic-tools | AI驱动的图像变换工具"
   }
   
   const descriptions = {
-    en: "Learn how Aiartools protects your privacy and handles your personal information. Our commitment to data security and transparency.",
-    zh: "了解Aiartools如何保护您的隐私并处理您的个人信息。我们对数据安全和透明度的承诺。"
+    en: "Learn how Magic-tools protects your privacy and handles your personal information. Our commitment to data security and transparency.",
+    zh: "了解Magic-tools如何保护您的隐私并处理您的个人信息。我们对数据安全和透明度的承诺。"
   }
 
   const title = titles[locale as keyof typeof titles] || titles.en
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title,
       description,
       url: `https://aiartools.com/${locale}/privacy`,
-      siteName: "Aiartools",
+      siteName: "Magic-tools",
       locale: locale === 'zh' ? 'zh_CN' : 'en_US',
       type: 'website',
     },
@@ -62,7 +62,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
         title: "Privacy Policy",
         lastUpdated: "Last updated: May 2025",
         introduction:
-          "Welcome to Aiartools (we, our, or us). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered image transformation service.",
+          "Welcome to Magic-tools (we, our, or us). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered image transformation service.",
         informationWeCollect: "Information We Collect",
         personalInformation: "Personal Information",
         personalInfoList: [
@@ -150,7 +150,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
         title: "隐私政策",
         lastUpdated: "最后更新：2025年5月",
         introduction:
-          "欢迎使用Aiartools（我们、我们的或我们）。我们致力于保护您的隐私并确保您个人信息的安全。本隐私政策说明了当您使用我们的AI驱动图像变换服务时，我们如何收集、使用、披露和保护您的信息。",
+          "欢迎使用Magic-tools（我们、我们的或我们）。我们致力于保护您的隐私并确保您个人信息的安全。本隐私政策说明了当您使用我们的AI驱动图像变换服务时，我们如何收集、使用、披露和保护您的信息。",
         informationWeCollect: "我们收集的信息",
         personalInformation: "个人信息",
         personalInfoList: [

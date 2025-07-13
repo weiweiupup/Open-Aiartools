@@ -36,9 +36,9 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
-    authors: [{ name: 'Aiartools Team' }],
-    creator: 'Aiartools',
-    publisher: 'Aiartools',
+    authors: [{ name: 'Magic-tools Team' }],
+    creator: 'Magic-tools',
+    publisher: 'Magic-tools',
     robots: {
       index: true,
       follow: true,
@@ -57,7 +57,7 @@ export async function generateMetadata({
       url: 'https://aiartools.com',
       title: t('ogTitle'),
       description: t('ogDescription'),
-      siteName: 'Aiartools',
+      siteName: 'Magic-tools',
       images: [
         {
           url: '/images/og-image.png',
@@ -124,7 +124,7 @@ export default async function LocaleLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": "Aiartools",
+              "name": "Magic-tools",
               "description": locale === 'zh' 
                 ? "用AI的力量改变你的图像。简单、快速、功能强大。"
                 : "Transform your images with the power of AI. Simple, fast, and incredibly powerful.",
